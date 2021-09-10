@@ -1,10 +1,15 @@
 bgSolidChoice = document.querySelector('#solid-color')
 bgGradientChoice = document.querySelector('#gradient-color')
 bgImageChoice = document.querySelector('#image-background')
-bgImageFile = document.querySelector('#f')
+bgImageFile = document.querySelector('#bg-image-file')
 solidColorPicker = document.querySelector('#solid-color-picker')
 badge = document.querySelector('.badge')
 
+function changeBgImg(event) {
+	url = URL.createObjectURL(event.target.files[0]);
+    console.log(url)
+	badge.style.background = `cover url(${url} no-repeat)`
+}
 const changeBg =()=>{
     if (bgSolidChoice.checked){
         document.querySelector('#color-options').hidden = false
@@ -23,7 +28,7 @@ const changeBg =()=>{
         document.querySelector('#color-options').hidden = true
         document.querySelector('#gradient-options').hidden = true
         document.querySelector('#image-options').hidden = false
-        console.log('image picked')
+        console.log('image option picked')
     }
     
 }
