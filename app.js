@@ -5,10 +5,11 @@ bgImageFile = document.querySelector('#bg-image-file')
 solidColorPicker = document.querySelector('#solid-color-picker')
 badge = document.querySelector('.badge')
 
-function changeBgImg(event) {
-	url = URL.createObjectURL(event.target.files[0]);
+function changeBgImg() {
+    const blob = new Blob([bgImageFile.files[0]])
+	url = URL.createObjectURL(blob);
     console.log(url)
-	badge.style.background = `cover url(${url} no-repeat)`
+	badge.style.background =`url(${url}) !important;`
 }
 const changeBg =()=>{
     if (bgSolidChoice.checked){
