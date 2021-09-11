@@ -43,7 +43,7 @@ const changeBg = () => {
         document.querySelector("#gradient-options").hidden = true;
         document.querySelector("#image-options").hidden = true;
         console.log("solid color picked");
-        background = solidColorPicker.value;
+        background = `background: ${solidColorPicker.value} !important`;
     }
     if (bgGradientChoice.checked) {
         document.querySelector("#color-options").hidden = true;
