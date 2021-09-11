@@ -6,13 +6,13 @@ solidColorPicker = document.querySelector("#solid-color-picker");
 
 borderOptions = document.querySelector("#border-options");
 hasBorder = document.querySelector("#yes-border");
-borderColor = document.querySelector("#border-color")
-borderRange = document.querySelector('#border-thickness');
-borderLabel = document.querySelector('#border-label');
+borderColor = document.querySelector("#border-color");
+borderRange = document.querySelector("#border-thickness");
+borderLabel = document.querySelector("#border-label");
 
 badge = document.querySelector(".badge");
-border = '';
-background = '';
+border = "";
+background = "";
 
 function changeBgImg() {
     const blob = new Blob([bgImageFile.files[0]]);
@@ -62,20 +62,25 @@ const changeBg = () => {
 
 const changeBorder = () => {
     if (hasBorder.checked) {
-        borderOptions.style = 'color: black !important;'
+        borderOptions.style = "color: black !important;";
         borderRange.disabled = false;
-        console.log(borderRange.value)
-        border = `border: ${borderRange.value}px solid ${borderColor.value} !important;`
-        borderLabel.innerHTML = `Thickness: ${borderRange.value}px`
+        console.log(borderRange.value);
+        border = `border: ${borderRange.value}px solid ${borderColor.value} !important;`;
+        borderLabel.innerHTML = `Thickness: ${borderRange.value}px`;
     } else {
-        borderOptions.style = 'color: grey !important;'
+        borderOptions.style = "color: grey !important;";
         borderRange.disabled = true;
-        border = 'border: 0;';
-        borderLabel.innerHTML ="Thickness: 0px"
+        border = "border: 0;";
+        borderLabel.innerHTML = "Thickness: 0px";
     }
     changeStyling();
 };
 
 const changeStyling = () => {
     badge.style = border + background;
-}
+};
+
+// Add persistence across reloads
+changeBg();
+changeStyling();
+changeBorder();
