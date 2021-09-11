@@ -21,6 +21,9 @@
     <body class="bg-light bg-gradient">
         <div id="menu" class="border rounded-2">
             <div id="options">
+                <h2>Upload Spreadsheet:</h2>
+                <input type="file" id="spreadsheet-file" onchange="uploadSpreadsheet()" />
+                <hr>
                 <form id="background-options" onchange="changeBg()">
                     <h2>Background:</h2>
 
@@ -61,7 +64,6 @@
                     <input type="range" class="form-range" id="border-thickness" min="0" max="20" step="4">
                 </form>
                 <br />
-                <input type="file" id="spreadsheet-file" onchange="uploadSpreadsheet()" />
             </div>
             <div class="badge"></div>
         </div>
