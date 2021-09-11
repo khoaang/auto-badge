@@ -23,11 +23,16 @@ body {
 
         h2 {
             font-weight: bold;
-            font-size: 20px;
+            font-size: 19px;
+        }
+
+        label {
+            font-size: 16px;
         }
 
         .background-options {
             margin-left: 2em;
+            max-width: 200px;
         }
 
         #border-options {
@@ -36,6 +41,7 @@ body {
     }
 
     .badge {
+        color: black;
         box-sizing: border-box;
         display: block;
         width: 45%;
@@ -43,6 +49,21 @@ body {
         background-color: #32a852;
         width: 320px; // 1.5x size of 2.13 px)
         height: 510px; //1.5x size of 3.4 px
+
+        h3 {
+            font-size: 40px;
+        }
+
+        p {
+            font-weight: lighter;
+            font-size: 30px;
+        }
+
+        .content-wrapper {
+            img {
+                margin: 7px;
+            }
+        }
     }
 }
 
