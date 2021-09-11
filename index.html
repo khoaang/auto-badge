@@ -49,6 +49,17 @@
                         <label for="bg-image-file"></label>
                     </div>
                 </form>
+                <form id="border-options" onchange="changeBorder()">
+                    <div class="form-check border-option">
+                        <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="yes-border"/>
+                        <label id="borderLabel" class="form-check-label" for="yes-border"><h2>Border:</h2></label>
+                    </div>
+                    <label for="border-color">Border Color: </label>
+                    <input type="color" id="border-color" value="#000000" />
+                    <br>
+                    <label id="border-label" for="border-thickness" class="form-label">Thickness: 0px</label>
+                    <input type="range" class="form-range" id="border-thickness" min="0" max="20" step="4">
+                </form>
                 <br />
                 <input type="file" id="spreadsheet-file" onchange="uploadSpreadsheet()" />
             </div>

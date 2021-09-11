@@ -17,9 +17,13 @@ body {
 
     #options {
         margin: 2em;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
 
-        h1 {
+        h2 {
             font-weight: bold;
+            font-size: 20px;
         }
 
         .background-options {
@@ -28,6 +32,7 @@ body {
     }
 
     .badge {
+        box-sizing: border-box;
         display: block;
         width: 45%;
         margin: 2em;
@@ -50,6 +55,6 @@ body {
 
     .badge {
         margin: 0;
-        transform: scale(16);
+        transform: scale(2);
     }
 }

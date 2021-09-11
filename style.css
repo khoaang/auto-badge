@@ -34,10 +34,19 @@ body {
 
 #menu #options {
   margin: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-items: center;
 }
 
-#menu #options h1 {
+#menu #options h2 {
   font-weight: bold;
+  font-size: 20px;
 }
 
 #menu #options .background-options {
@@ -45,6 +54,8 @@ body {
 }
 
 #menu .badge {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: block;
   width: 45%;
   margin: 2em;
@@ -64,8 +75,8 @@ body {
   }
   .badge {
     margin: 0;
-    -webkit-transform: scale(16);
-            transform: scale(16);
+    -webkit-transform: scale(2);
+            transform: scale(2);
   }
 }
 /*# sourceMappingURL=style.css.map */

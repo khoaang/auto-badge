@@ -3,13 +3,23 @@ bgGradientChoice = document.querySelector("#gradient-color");
 bgImageChoice = document.querySelector("#image-background");
 bgImageFile = document.querySelector("#bg-image-file");
 solidColorPicker = document.querySelector("#solid-color-picker");
+
+borderOptions = document.querySelector("#border-options");
+hasBorder = document.querySelector("#yes-border");
+borderColor = document.querySelector("#border-color")
+borderRange = document.querySelector('#border-thickness');
+borderLabel = document.querySelector('#border-label');
+
 badge = document.querySelector(".badge");
+border = '';
+background = '';
 
 function changeBgImg() {
     const blob = new Blob([bgImageFile.files[0]]);
     url = URL.createObjectURL(blob);
     console.log(url);
-    badge.style = `background: url(${url}) !important;`;
+    background = `background: url(${url}) !important; background-size: cover !important; background-position: center !important;`;
+    changeStyling();
 }
 function uploadSpreadsheet() {
     var file = document.querySelector("#spreadsheet-file").files[0];
@@ -25,7 +35,7 @@ const changeBg = () => {
         document.querySelector("#gradient-options").hidden = true;
         document.querySelector("#image-options").hidden = true;
         console.log("solid color picked");
-        badge.style.background = solidColorPicker.value;
+        background = solidColorPicker.value;
     }
     if (bgGradientChoice.checked) {
         document.querySelector("#color-options").hidden = true;
@@ -39,4 +49,25 @@ const changeBg = () => {
         document.querySelector("#image-options").hidden = false;
         console.log("image option picked");
     }
+    changeStyling();
 };
+
+const changeBorder = () => {
+    if (hasBorder.checked) {
+        borderOptions.style = 'color: black !important;'
+        borderRange.disabled = false;
+        console.log(borderRange.value)
+        border = `border: ${borderRange.value}px solid ${borderColor.value} !important;`
+        borderLabel.innerHTML = `Thickness: ${borderRange.value}px`
+    } else {
+        borderOptions.style = 'color: grey !important;'
+        borderRange.disabled = true;
+        border = 'border: 0;';
+        borderLabel.innerHTML ="Thickness: 0px"
+    }
+    changeStyling();
+};
+
+const changeStyling = () => {
+    badge.style = border + background;
+}
