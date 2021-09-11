@@ -12,7 +12,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 #menu {
@@ -45,6 +45,7 @@ body {
 }
 
 #menu .badge {
+  display: block;
   width: 45%;
   margin: 2em;
   background-color: #32a852;

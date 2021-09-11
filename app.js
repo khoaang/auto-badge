@@ -6,10 +6,10 @@ solidColorPicker = document.querySelector("#solid-color-picker");
 badge = document.querySelector(".badge");
 
 function changeBgImg() {
-    const blob = new Blob([bgImageFile.files[0]])
-	url = URL.createObjectURL(blob);
-    console.log(url)
-	badge.style.background =`url(${url}) !important;`
+    const blob = new Blob([bgImageFile.files[0]]);
+    url = URL.createObjectURL(blob);
+    console.log(url);
+    badge.style = `background: url(${url}) !important;`;
 }
 function uploadSpreadsheet() {
     var file = document.querySelector("#spreadsheet-file").files[0];
