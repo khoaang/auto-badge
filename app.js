@@ -17,6 +17,14 @@ function uploadSpreadsheet() {
     reader.readAsText(file);
     reader.onload = () => {
         console.log(reader.result);
+        var csvarray = [];
+        var data = reader.result;
+        var rows = data.split("\r\n");
+        for (var i = 1; i < rows.length; i++) {
+            var row = rows[i].split(",");
+            csvarray.push(rows[i].split(","));
+        }
+        console.log(csvarray);
     };
 }
 const changeBg = () => {
