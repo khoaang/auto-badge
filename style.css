@@ -53,6 +53,10 @@ body {
   margin-left: 2em;
 }
 
+#menu #options #border-options {
+  color: grey;
+}
+
 #menu .badge {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
