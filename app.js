@@ -1,3 +1,5 @@
+const { spread } = require("lodash");
+
 bgSolidChoice = document.querySelector("#solid-color");
 bgGradientChoice = document.querySelector("#gradient-color");
 bgImageChoice = document.querySelector("#image-background");
@@ -10,15 +12,17 @@ borderColor = document.querySelector("#border-color");
 borderRange = document.querySelector("#border-thickness");
 borderLabel = document.querySelector("#border-label");
 
-textColor = document.querySelector('#text-color-picker');
+textColor = document.querySelector("#text-color-picker");
 
-logoImageFile = document.querySelector("#logo-image-file")
-logo = document.querySelector(".logo")
+logoImageFile = document.querySelector("#logo-image-file");
+logo = document.querySelector(".logo");
 
 badge = document.querySelector(".badge");
 border = "";
 background = "";
 colorStyle = "";
+
+spreadsheet = [];
 
 function changeBgImg() {
     const blob = new Blob([bgImageFile.files[0]]);
@@ -48,6 +52,7 @@ function uploadSpreadsheet() {
             var row = rows[i].split(",");
             csvarray.push(rows[i].split(","));
         }
+        spreadsheet = csvarray;
         console.log(csvarray);
     };
 }
@@ -93,11 +98,17 @@ const changeBorder = () => {
 const changeTextColor = () => {
     colorStyle = `color: ${textColor.value} !important;`;
     changeStyling();
-}
+};
 
 const changeStyling = () => {
     badge.style = border + background + colorStyle;
 };
+
+function printBadges() {
+    document.querySelector(".name").innerHTML = spreadsheet[0][0];
+    document.querySelector(".occupation").innerHTML = spreadsheet[0][1];
+    window.print();
+}
 
 // Add persistence across reloads
 changeBg();

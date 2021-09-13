@@ -20,9 +20,6 @@ body {
   width: 90%;
   max-width: 800px;
   border: black 2px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 #menu #options {
