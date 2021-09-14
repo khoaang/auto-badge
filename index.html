@@ -71,17 +71,21 @@
                 </div>
                 <hr>
                 <h2>Upload Logo IMG/Graphic:</h2>
-                <input type="file" id="logo-image-file" onchange="changeLogo()" />
+                <p>Top</p>
+                <input type="file" id="logo-top-image-file" onchange="changeLogoTop()" />
+                <p>Bottom</p>
+                <input type="file" id="logo-bottom-image-file" onchange="changeLogoBottom()" />
                 <hr>
                 <button type="button" class="btn btn-primary" id="printButton" onclick="printBadges()">Print</button>
             </div>
             <div class="badge">
                 <br>
                 <div class="content-wrapper d-flex flex-column align-items-center">
-                    <img src="assets/logo.png" class="logo" height="80px">
-                    <img src="assets/default-profile.jpg" alt="" id="profile" height="225px">
+                    <img src="assets/logo.png" class="logo-top" height="80px">
+                    <img src="assets/default-profile.jpg" alt="" id="profile" height="175px">
                     <h3 class="name">John Doe</h3>
                     <p class="occupation">Student</p>
+                    <img src="assets/logo.png" class="logo-bottom" height="80px">
                 </div>
                 
             </div>
