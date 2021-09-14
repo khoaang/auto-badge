@@ -1,5 +1,3 @@
-const { spread } = require("lodash");
-
 bgSolidChoice = document.querySelector("#solid-color");
 bgGradientChoice = document.querySelector("#gradient-color");
 bgImageChoice = document.querySelector("#image-background");
@@ -24,7 +22,7 @@ border = "";
 background = "";
 colorStyle = "";
 
-spreadsheet = [];
+var spreadsheet = [];
 
 function changeBgImg() {
     const blob = new Blob([bgImageFile.files[0]]);
@@ -114,9 +112,11 @@ const changeStyling = () => {
 };
 
 function printBadges() {
-    document.querySelector(".name").innerHTML = spreadsheet[0][0];
-    document.querySelector(".occupation").innerHTML = spreadsheet[0][1];
-    window.print();
+    spreadsheet.forEach((row) => {
+        document.querySelector(".name").innerHTML = row[0];
+        document.querySelector("#profile").src = row[1].replace("https://", "");
+        window.print();
+    });
 }
 
 // Add persistence across reloads
