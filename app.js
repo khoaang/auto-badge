@@ -105,7 +105,9 @@ const changeStyling = () => {
 function printBadges() {
     spreadsheet.forEach((row) => {
         document.querySelector(".name").innerHTML = row[0];
-        document.querySelector("#profile").src = row[1].replace("https://", "");
+        document.querySelector("#profile").src =
+            "https://drive.google.com/uc?export=download&id=" +
+            row[1].replace("https://drive.google.com/file/d/", "").replace("/view?usp=sharing", "");
         window.print();
     });
 }
