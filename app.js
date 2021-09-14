@@ -34,14 +34,14 @@ function changeBgImg() {
     changeStyling();
 }
 
-function changelogoTop() {
+function changeLogoTop() {
     const blob = new Blob([logoTopImageFile.files[0]]);
     url = URL.createObjectURL(blob);
     console.log(url);
     logoTop.src = url;
 }
 
-function changelogoBottom() {
+function changeLogoBottom() {
     const blob = new Blob([logoBottomImageFile.files[0]]);
     url = URL.createObjectURL(blob);
     console.log(url);
