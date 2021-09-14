@@ -123,6 +123,13 @@ function printBadges() {
     });
 }
 
+document.addEventListener("keydown", (e)=>{
+    if ((e.ctrlKey || e.metakey) && e.keyCode === 80) {
+        e.preventDefault();
+        printBadges();
+    }
+});
+
 // Add persistence across reloads
 changeBg();
 changeBorder();
