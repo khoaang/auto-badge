@@ -1,3 +1,5 @@
+// journalism ~ eternity.martinez@student.rjuhsd.us
+
 bgSolidChoice = document.querySelector("#solid-color");
 bgGradientChoice = document.querySelector("#gradient-color");
 bgImageChoice = document.querySelector("#image-background");
