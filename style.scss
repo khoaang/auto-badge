@@ -58,21 +58,28 @@ body {
 
         .content-wrapper {
             img {
-                margin: 7px;
+                margin: 5px;
             }
         }
     }
 }
 
 @media print {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
     #menu {
         border: none !important;
         max-width: 100000px;
+        padding: 0;
     }
 
     #options {
         display: none !important;
         margin: 0;
+        padding: 0;
 
         .badge {
             margin: 0;
