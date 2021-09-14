@@ -14,8 +14,10 @@ borderLabel = document.querySelector("#border-label");
 
 textColor = document.querySelector("#text-color-picker");
 
-logoImageFile = document.querySelector("#logo-image-file");
-logo = document.querySelector(".logo");
+logoTopImageFile = document.querySelector("#logo-top-image-file");
+logoTop = document.querySelector(".logo-top");
+logoBottomImageFile = document.querySelector("#logo-bottom-image-file");
+logoBottom = document.querySelector(".logo-bottom");
 
 badge = document.querySelector(".badge");
 border = "";
@@ -32,11 +34,18 @@ function changeBgImg() {
     changeStyling();
 }
 
-function changeLogo() {
-    const blob = new Blob([logoImageFile.files[0]]);
+function changelogoTop() {
+    const blob = new Blob([logoTopImageFile.files[0]]);
     url = URL.createObjectURL(blob);
     console.log(url);
-    logo.src = url;
+    logoTop.src = url;
+}
+
+function changelogoBottom() {
+    const blob = new Blob([logoBottomImageFile.files[0]]);
+    url = URL.createObjectURL(blob);
+    console.log(url);
+    logoBottom.src = url;
 }
 
 function uploadSpreadsheet() {

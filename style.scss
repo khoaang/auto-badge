@@ -73,10 +73,9 @@ body {
     #options {
         display: none !important;
         margin: 0;
-    }
 
-    .badge {
-        margin: 0;
-        transform: scale(2);
+        .badge {
+            margin: 0;
+            transform: scale(2);
+        }
     }
-}
