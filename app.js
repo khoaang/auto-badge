@@ -1,5 +1,3 @@
-const { spread, forEach } = require("lodash");
-
 bgSolidChoice = document.querySelector("#solid-color");
 bgGradientChoice = document.querySelector("#gradient-color");
 bgImageChoice = document.querySelector("#image-background");
@@ -107,7 +105,7 @@ const changeStyling = () => {
 function printBadges() {
     spreadsheet.forEach((row) => {
         document.querySelector(".name").innerHTML = row[0];
-        document.querySelector(".occupation").innerHTML = row[1];
+        document.querySelector("#profile").src = row[1].replace("https://", "");
         window.print();
     });
 }
