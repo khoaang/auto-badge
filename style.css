@@ -65,7 +65,8 @@ body {
 }
 
 #menu .badge h3 {
-  font-size: 40px;
+  font-size: 30px;
+  margin: 0;
 }
 
 #menu .badge p {
