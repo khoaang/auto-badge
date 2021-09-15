@@ -117,24 +117,24 @@ function sleep(milliseconds) {
     const date = Date.now();
     let currentDate = null;
     do {
-      currentDate = Date.now();
+        currentDate = Date.now();
     } while (currentDate - date < milliseconds);
-  }
+}
 
 function printBadges() {
     spreadsheet.forEach((row) => {
-        imageLink = "https://drive.google.com/thumbnail?id=" +
-        row[1].replace("https://drive.google.com/file/d/", "").replace("/view?usp=sharing", "");
+        imageLink =
+            "https://drive.google.com/thumbnail?id=" + row[1].replace("https://drive.google.com/file/d/", "").replace("/view?usp=sharing", "");
         // imageLink = "https://drive.google.com/uc?export=download&id=" +
         // row[1].replace("https://drive.google.com/file/d/", "").replace("/view?usp=sharing", "");
         document.querySelector(".name").innerHTML = row[0];
         document.querySelector("#profile").src = imageLink;
-            console.log('boo!')
-            window.print();
+        console.log("boo!");
+        window.print();
     });
 }
 
-document.addEventListener("keydown", (e)=>{
+document.addEventListener("keydown", (e) => {
     if ((e.ctrlKey || e.metakey) && e.keyCode === 80) {
         e.preventDefault();
         printBadges();
