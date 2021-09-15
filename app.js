@@ -119,7 +119,9 @@ function printBadges() {
         document.querySelector("#profile").src =
             "https://drive.google.com/uc?export=download&id=" +
             row[1].replace("https://drive.google.com/file/d/", "").replace("/view?usp=sharing", "");
-        window.print();
+            setTimeout(function(){
+                window.print()
+            }, 500); 
     });
 }
 
