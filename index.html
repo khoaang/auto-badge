@@ -21,8 +21,8 @@
     <body class="bg-light bg-gradient">
         <div id="menu" class="border rounded-2 d-flex flex-row align-items-center justify-content-between">
             <div id="options">
-                <h2>Upload Spreadsheet:</h2>
-                <input type="file" id="spreadsheet-file" onchange="uploadSpreadsheet()" />
+                <h2>Upload Spreadsheet (CSV):</h2>
+                <input type="file" id="spreadsheet-file" accept='.csv' onchange="uploadSpreadsheet()" />
                 <hr />
                 <form id="background-options" onchange="changeBg()">
                     <h2>Background:</h2>
@@ -48,7 +48,7 @@
                         <p>gradient stuff</p>
                     </div>
                     <div id="image-options" class="background-options" hidden>
-                        <input type="file" id="bg-image-file" accept="image/gif, image/jpeg" onchange="changeBgImg(event)" />
+                        <input type="file" id="bg-image-file" accept="image/gif, image/jpeg, image/png" onchange="changeBgImg(event)" />
                         <label for="bg-image-file"></label>
                     </div>
                 </form>
@@ -72,9 +72,9 @@
                 <hr>
                 <h2>Upload Logo IMG/Graphic:</h2>
                 <p>Top</p>
-                <input type="file" id="logo-top-image-file" onchange="changeLogoTop()" />
+                <input type="file" id="logo-top-image-file" accept="image/gif, image/jpeg, image/png" onchange="changeLogoTop()" />
                 <p>Bottom</p>
-                <input type="file" id="logo-bottom-image-file" onchange="changeLogoBottom()" />
+                <input type="file" id="logo-bottom-image-file" accept="image/gif, image/jpeg, image/png" onchange="changeLogoBottom()" />
                 <hr>
                 <button type="button" class="btn btn-primary" id="printButton" onclick="printBadges()">Print</button>
             </div>
