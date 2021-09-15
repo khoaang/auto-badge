@@ -96,6 +96,8 @@ body {
   }
   .badge {
     margin: 0 !important;
+    -webkit-transform-origin: center;
+            transform-origin: center;
     -webkit-transform: scale(1.2);
             transform: scale(1.2);
   }
