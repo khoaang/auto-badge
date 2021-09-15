@@ -95,11 +95,14 @@ body {
     padding: 0;
   }
   .badge {
+    position: relative;
     margin: 0 !important;
     -webkit-transform-origin: center !important;
             transform-origin: center !important;
-    -webkit-transform: scale(1.2);
-            transform: scale(1.2);
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
+    top: 40px !important;
+    left: 7px;
   }
 }
 /*# sourceMappingURL=style.css.map */

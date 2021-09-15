@@ -85,8 +85,11 @@ body {
     }
 
     .badge {
+        position: relative;
         margin: 0 !important;
         transform-origin: center !important;
-        transform: scale(1.2);
+        transform: scale(1.15);
+        top: 40px !important;
+        left: 7px;
     }
 }
