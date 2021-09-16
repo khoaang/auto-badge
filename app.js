@@ -130,11 +130,7 @@ async function loadImage(imageLink) {
         };
     });
 }
-async function executeInOrder(array) {
-    for (const fn of array) {
-        await fn;
-    }
-}
+
 function printBadges() {
     var promises = [];
     spreadsheet.forEach((row) => {
@@ -151,21 +147,8 @@ function printBadges() {
                 img.src = imageLink;
                 img.id = "profile";
             })
-
-            // new Promise((resolve, reject) => {
-            //     imageLink =
-            //         "https://drive.google.com/thumbnail?id=" +
-            //         row[1].replace("https://drive.google.com/file/d/", "").replace("/view?usp=sharing", "");
-
-            //     document.querySelector(".name").innerHTML = row[0];
-            //     window.print();
-            // })
         );
     });
-
-    // Promise.all(promises.map((t) => t())).then((response) => {
-    //     console.log(response);
-    // });
     Promise.all(promises).then((outputs) => {
         for (output in outputs) {
             var image = outputs[output]["img"];
@@ -175,12 +158,6 @@ function printBadges() {
             window.print();
         }
     });
-
-    // executeInOrder(promises).then(() => {});
-
-    // promises.reduce((cur, next) => {
-    //     return cur.then(next);
-    // });
     console.log(promises);
 }
 
