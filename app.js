@@ -121,17 +121,67 @@ function sleep(milliseconds) {
     } while (currentDate - date < milliseconds);
 }
 
-function printBadges() {
-    spreadsheet.forEach((row) => {
-        imageLink =
-            "https://drive.google.com/thumbnail?id=" + row[1].replace("https://drive.google.com/file/d/", "").replace("/view?usp=sharing", "");
-        // imageLink = "https://drive.google.com/uc?export=download&id=" +
-        // row[1].replace("https://drive.google.com/file/d/", "").replace("/view?usp=sharing", "");
-        document.querySelector(".name").innerHTML = row[0];
+async function loadImage(imageLink) {
+    return new Promise((resolve, reject) => {
         document.querySelector("#profile").src = imageLink;
-        console.log("boo!");
-        window.print();
+        document.querySelector("#profile").onload = async () => {
+            console.log("Image Loaded");
+            resolve(true);
+        };
     });
+}
+async function executeInOrder(array) {
+    for (const fn of array) {
+        await fn;
+    }
+}
+function printBadges() {
+    var promises = [];
+    spreadsheet.forEach((row) => {
+        var imageLink =
+            "https://drive.google.com/thumbnail?id=" + row[1].replace("https://drive.google.com/file/d/", "").replace("/view?usp=sharing", "");
+
+        promises.push(
+            new Promise((resolve) => {
+                const img = new Image();
+                img.onload = () => {
+                    console.log("Image Loaded");
+                    resolve({ img, row: row[0] });
+                };
+                img.src = imageLink;
+                img.id = "profile";
+            })
+
+            // new Promise((resolve, reject) => {
+            //     imageLink =
+            //         "https://drive.google.com/thumbnail?id=" +
+            //         row[1].replace("https://drive.google.com/file/d/", "").replace("/view?usp=sharing", "");
+
+            //     document.querySelector(".name").innerHTML = row[0];
+            //     window.print();
+            // })
+        );
+    });
+
+    // Promise.all(promises.map((t) => t())).then((response) => {
+    //     console.log(response);
+    // });
+    Promise.all(promises).then((outputs) => {
+        for (output in outputs) {
+            var image = outputs[output]["img"];
+            var name = outputs[output]["row"];
+            document.querySelector(".name").innerHTML = name;
+            document.querySelector("#profile").parentNode.replaceChild(image, document.querySelector("#profile"));
+            window.print();
+        }
+    });
+
+    // executeInOrder(promises).then(() => {});
+
+    // promises.reduce((cur, next) => {
+    //     return cur.then(next);
+    // });
+    console.log(promises);
 }
 
 document.addEventListener("keydown", (e) => {
