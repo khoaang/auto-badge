@@ -133,6 +133,7 @@ async function loadImage(imageLink) {
 
 function printBadges() {
     var promises = [];
+    var index = 0;
     spreadsheet.forEach((row) => {
         var imageLink =
             "https://drive.google.com/thumbnail?id=" + row[1].replace("https://drive.google.com/file/d/", "").replace("/view?usp=sharing", "");
@@ -142,15 +143,20 @@ function printBadges() {
                 const img = new Image();
                 img.onload = () => {
                     console.log("Image Loaded");
-                    resolve({ img, row: row[0] });
+                    resolve({ img, row: row[0], index });
                 };
                 img.src = imageLink;
                 img.id = "profile";
             })
         );
+        index++;
     });
     Promise.all(promises).then((outputs) => {
+        var array = Array.apply(null, Array(index + 1)).map(() => {});
         for (output in outputs) {
+            array[outputs[output].index] = outputs[output];
+        }
+        for (output in array) {
             var image = outputs[output]["img"];
             var name = outputs[output]["row"];
             document.querySelector(".name").innerHTML = name;
