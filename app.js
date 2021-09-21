@@ -121,17 +121,50 @@ function sleep(milliseconds) {
     } while (currentDate - date < milliseconds);
 }
 
-function printBadges() {
-    spreadsheet.forEach((row) => {
-        imageLink =
-            "https://drive.google.com/thumbnail?id=" + row[1].replace("https://drive.google.com/file/d/", "").replace("/view?usp=sharing", "");
-        // imageLink = "https://drive.google.com/uc?export=download&id=" +
-        // row[1].replace("https://drive.google.com/file/d/", "").replace("/view?usp=sharing", "");
-        document.querySelector(".name").innerHTML = row[0];
+async function loadImage(imageLink) {
+    return new Promise((resolve, reject) => {
         document.querySelector("#profile").src = imageLink;
-        console.log("boo!");
-        window.print();
+        document.querySelector("#profile").onload = async () => {
+            console.log("Image Loaded");
+            resolve(true);
+        };
     });
+}
+
+function printBadges() {
+    var promises = [];
+    var index = 0;
+    spreadsheet.forEach((row) => {
+        var imageLink =
+            "https://drive.google.com/thumbnail?id=" + row[1].replace("https://drive.google.com/file/d/", "").replace("/view?usp=sharing", "");
+
+        promises.push(
+            new Promise((resolve) => {
+                const img = new Image();
+                img.onload = () => {
+                    console.log("Image Loaded");
+                    resolve({ img, row: row[0], index });
+                };
+                img.src = imageLink;
+                img.id = "profile";
+            })
+        );
+        index++;
+    });
+    Promise.all(promises).then((outputs) => {
+        var array = Array.apply(null, Array(index + 1)).map(() => {});
+        for (output in outputs) {
+            array[outputs[output].index] = outputs[output];
+        }
+        for (output in array) {
+            var image = outputs[output]["img"];
+            var name = outputs[output]["row"];
+            document.querySelector(".name").innerHTML = name;
+            document.querySelector("#profile").parentNode.replaceChild(image, document.querySelector("#profile"));
+            window.print();
+        }
+    });
+    console.log(promises);
 }
 
 document.addEventListener("keydown", (e) => {
