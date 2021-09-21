@@ -67,15 +67,14 @@ body {
 #menu .badge h3 {
   font-size: 30px;
   margin: 0;
+  max-width: 300px;
+  word-wrap: normal;
+  white-space: normal;
 }
 
 #menu .badge p {
   font-weight: lighter;
   font-size: 30px;
-}
-
-#menu .badge .content-wrapper img {
-  margin: 5px;
 }
 
 @media print {

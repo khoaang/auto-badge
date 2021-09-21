@@ -50,6 +50,9 @@ body {
         h3 {
             font-size: 30px;
             margin: 0;
+            max-width: 300px;
+            word-wrap: normal;
+            white-space: normal;
         }
 
         p {
@@ -59,7 +62,6 @@ body {
 
         .content-wrapper {
             img {
-                margin: 5px;
             }
         }
     }
