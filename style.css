@@ -90,8 +90,8 @@ body {
 }
 
 @media print {
-  .arrows {
-    display: none;
+  #arrows {
+    display: none !important;
   }
   body {
     margin: 0;
