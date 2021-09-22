@@ -77,6 +77,14 @@ body {
   font-size: 30px;
 }
 
+#menu .badge-counter {
+  cursor: none;
+}
+
+#menu .badge-counter:hover {
+  background: #0d6efd !important;
+}
+
 @media print {
   body {
     margin: 0;

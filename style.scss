@@ -59,11 +59,14 @@ body {
             font-weight: lighter;
             font-size: 30px;
         }
+    }
 
-        .content-wrapper {
-            img {
-            }
-        }
+    .badge-counter {
+        cursor: none;
+    }
+
+    .badge-counter:hover {
+        background: #0d6efd !important;
     }
 }
 

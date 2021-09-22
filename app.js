@@ -23,6 +23,8 @@ badge = document.querySelector(".badge");
 border = "";
 background = "";
 colorStyle = "";
+rightBtn = document.querySelector('.rightBtn');
+leftBtn = document.querySelector('.leftBtn');
 
 var spreadsheet = [];
 

@@ -78,16 +78,24 @@
                 <hr>
                 <button type="button" class="btn btn-primary" id="printButton" onclick="printBadges()">Print</button>
             </div>
-            <div class="badge">
-                <br>
-                <div class="content-wrapper d-flex flex-column align-items-center justify-content-between">
-                    <img src="assets/logo.png" class="logo-top" height="90px">
-                    <img src="assets/default-profile.jpg" alt="" id="profile" height="175px">
-                    <h3 class="name">John Doe</h3>
-                    <p class="occupation" style="font-size: 15px;">2021-2022</p>
-                    <img src="assets/logo.png" class="logo-bottom" height="120px">
+            <div class="badge-wrapper d-flex flex-column align-items-center">
+                <div class="badge">
+                    <br>
+                    <div class="content-wrapper d-flex flex-column align-items-center justify-content-between">
+                        <img src="assets/logo.png" class="logo-top" height="90px">
+                        <img src="assets/default-profile.jpg" alt="" id="profile" height="175px">
+                        <h3 class="name">John Doe</h3>
+                        <p class="occupation" style="font-size: 15px;">2021-2022</p>
+                        <img src="assets/logo.png" class="logo-bottom" height="120px">
+                    </div>
                 </div>
-                
+                <div class="arrows d-flex flex-row justify-content-center align-items-center">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="left-btn btn btn-primary"><</button>
+                        <button type="button" class="badge-counter btn btn-primary">1</button>
+                        <button type="button" class="right-btn btn btn-primary">></button>
+                      </div>
+                </div>
             </div>
         </div>
         <script src="app.js"></script>
