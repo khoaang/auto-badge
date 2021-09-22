@@ -159,6 +159,7 @@ function printBadges() {
         for (output in array) {
             var image = outputs[output]["img"];
             var name = outputs[output]["row"];
+            if(name.length>20){lineResize()}
             document.querySelector(".name").innerHTML = name;
             document.querySelector("#profile").parentNode.replaceChild(image, document.querySelector("#profile"));
             window.print();
@@ -166,7 +167,12 @@ function printBadges() {
     });
     console.log(promises);
 }
-
+function lineResize(){
+    document.querySelector("#profile").style = 'height: 160px;';
+    logoBottom.style = 'height: 110px;';
+    document.querySelector(".name").style = 'font-size: 26px;';
+    console.log('resized due to long name')
+}
 document.addEventListener("keydown", (e) => {
     if ((e.ctrlKey || e.metakey) && e.keyCode === 80) {
         e.preventDefault();
