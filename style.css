@@ -65,7 +65,7 @@ body {
 }
 
 #menu .badge .content-wrapper {
-  height: 490px;
+  height: 100%;
 }
 
 #menu .badge h3 {
