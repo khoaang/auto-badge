@@ -48,6 +48,9 @@ function changeLogoBottom() {
     url = URL.createObjectURL(blob);
     console.log(url);
     logoBottom.src = url;
+    logoBottom.classList.remove('d-none')
+    document.querySelector("#profile").style = 'height: 175px;'
+    logoTop.style = "height: 90px;"
 }
 
 function uploadSpreadsheet() {
