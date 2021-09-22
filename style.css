@@ -64,6 +64,10 @@ body {
   height: 510px;
 }
 
+#menu .badge .content-wrapper {
+  height: 510px;
+}
+
 #menu .badge h3 {
   font-size: 30px;
   margin: 0;
@@ -86,6 +90,9 @@ body {
 }
 
 @media print {
+  .arrows {
+    display: none;
+  }
   body {
     margin: 0;
     padding: 0;

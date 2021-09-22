@@ -47,6 +47,10 @@ body {
         width: 320px; // 1.5x size of 2.13 px)
         height: 510px; //1.5x size of 3.4 px
 
+        .content-wrapper {
+            height: 510px;
+        }
+
         h3 {
             font-size: 30px;
             margin: 0;
@@ -71,6 +75,10 @@ body {
 }
 
 @media print {
+    .arrows {
+        display: none;
+    }
+
     body {
         margin: 0;
         padding: 0;
