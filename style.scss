@@ -98,6 +98,7 @@ body {
     }
 
     .badge {
+        box-sizing: border-box;
         position: relative;
         margin: 0 !important;
         transform-origin: center !important;
