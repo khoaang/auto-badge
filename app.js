@@ -23,8 +23,12 @@ badge = document.querySelector(".badge");
 border = "";
 background = "";
 colorStyle = "";
-rightBtn = document.querySelector('.rightBtn');
-leftBtn = document.querySelector('.leftBtn');
+rightBtn = document.querySelector(".rightBtn");
+leftBtn = document.querySelector(".leftBtn");
+badgeCounter = document.querySelector(".badge-counter");
+
+var images = [];
+var currentImageIndex = null;
 
 var spreadsheet = [];
 
@@ -48,9 +52,60 @@ function changeLogoBottom() {
     url = URL.createObjectURL(blob);
     console.log(url);
     logoBottom.src = url;
-    logoBottom.classList.remove('d-none')
-    document.querySelector("#profile").style = 'height: 175px;'
-    logoTop.style = "height: 90px;"
+    logoBottom.classList.remove("d-none");
+    document.querySelector("#profile").style = "height: 175px;";
+    logoTop.style = "height: 90px;";
+}
+
+function goToImage(index) {
+    if (index < 0) {
+        index = images.length - 1;
+    }
+    if (index > images.length - 1) {
+        index = 0;
+    }
+    currentImageIndex = index;
+    badgeCounter.innerHTML = currentImageIndex + 1 + "/" + images.length;
+    var image = images[index]["img"];
+    var name = images[index]["row"];
+    if (name.length > 20) {
+        lineResize();
+    }
+    document.querySelector(".name").innerHTML = name;
+    document.querySelector("#profile").parentNode.replaceChild(image, document.querySelector("#profile"));
+}
+
+function getImages() {
+    var promises = [];
+    var index = 0;
+    spreadsheet.forEach((row) => {
+        var imageLink =
+            "https://drive.google.com/thumbnail?id=" + row[1].replace("https://drive.google.com/file/d/", "").replace("/view?usp=sharing", "");
+
+        promises.push(
+            new Promise((resolve) => {
+                const img = new Image();
+                img.onload = () => {
+                    console.log("Image Loaded");
+                    resolve({ img, row: row[0], index });
+                };
+                img.src = imageLink;
+                img.id = "profile";
+            })
+        );
+        index++;
+    });
+    Promise.all(promises).then((outputs) => {
+        var array = Array.apply(null, Array(index + 1)).map(() => {});
+        for (output in outputs) {
+            array[outputs[output].index] = outputs[output];
+        }
+        images = outputs;
+
+        //load first image
+        goToImage(0);
+        badgeCounter.innerHTML = currentImageIndex + 1 + "/" + images.length;
+    });
 }
 
 function uploadSpreadsheet() {
@@ -68,6 +123,7 @@ function uploadSpreadsheet() {
         }
         spreadsheet = csvarray;
         console.log(csvarray);
+        getImages();
     };
 }
 const changeBg = () => {
@@ -137,46 +193,48 @@ async function loadImage(imageLink) {
 }
 
 function printBadges() {
-    var promises = [];
-    var index = 0;
-    spreadsheet.forEach((row) => {
-        var imageLink =
-            "https://drive.google.com/thumbnail?id=" + row[1].replace("https://drive.google.com/file/d/", "").replace("/view?usp=sharing", "");
+    // var promises = [];
+    // var index = 0;
+    // spreadsheet.forEach((row) => {
+    //     var imageLink =
+    //         "https://drive.google.com/thumbnail?id=" + row[1].replace("https://drive.google.com/file/d/", "").replace("/view?usp=sharing", "");
 
-        promises.push(
-            new Promise((resolve) => {
-                const img = new Image();
-                img.onload = () => {
-                    console.log("Image Loaded");
-                    resolve({ img, row: row[0], index });
-                };
-                img.src = imageLink;
-                img.id = "profile";
-            })
-        );
-        index++;
-    });
-    Promise.all(promises).then((outputs) => {
-        var array = Array.apply(null, Array(index + 1)).map(() => {});
-        for (output in outputs) {
-            array[outputs[output].index] = outputs[output];
-        }
-        for (output in array) {
-            var image = outputs[output]["img"];
-            var name = outputs[output]["row"];
-            if(name.length>20){lineResize()}
-            document.querySelector(".name").innerHTML = name;
-            document.querySelector("#profile").parentNode.replaceChild(image, document.querySelector("#profile"));
-            window.print();
-        }
-    });
+    //     promises.push(
+    //         new Promise((resolve) => {
+    //             const img = new Image();
+    //             img.onload = () => {
+    //                 console.log("Image Loaded");
+    //                 resolve({ img, row: row[0], index });
+    //             };
+    //             img.src = imageLink;
+    //             img.id = "profile";
+    //         })
+    //     );
+    //     index++;
+    // });
+    // Promise.all(promises).then((outputs) => {
+    //     var array = Array.apply(null, Array(index + 1)).map(() => {});
+    //     for (output in outputs) {
+    //         array[outputs[output].index] = outputs[output];
+    //     }
+    //     for (output in array) {
+    //         var image = outputs[output]["img"];
+    //         var name = outputs[output]["row"];
+    //         if (name.length > 20) {
+    //             lineResize();
+    //         }
+    //         document.querySelector(".name").innerHTML = name;
+    //         document.querySelector("#profile").parentNode.replaceChild(image, document.querySelector("#profile"));
+    //         window.print();
+    //     }
+    // });
     console.log(promises);
 }
-function lineResize(){
-    document.querySelector("#profile").style = 'height: 160px;';
-    logoBottom.style = 'height: 110px;';
-    document.querySelector(".name").style = 'font-size: 26px;';
-    console.log('resized due to long name')
+function lineResize() {
+    document.querySelector("#profile").style = "height: 160px;";
+    logoBottom.style = "height: 110px;";
+    document.querySelector(".name").style = "font-size: 26px;";
+    console.log("resized due to long name");
 }
 document.addEventListener("keydown", (e) => {
     if ((e.ctrlKey || e.metakey) && e.keyCode === 80) {
@@ -184,6 +242,25 @@ document.addEventListener("keydown", (e) => {
         printBadges();
     }
 });
+function arrowClick(arrow) {
+    switch (arrow) {
+        case "right":
+            {
+                console.log("right");
+                goToImage(currentImageIndex + 1);
+            }
+            break;
+        case "left":
+            {
+                console.log("left");
+                goToImage(currentImageIndex - 1);
+            }
+            break;
+
+        default:
+            break;
+    }
+}
 
 // Add persistence across reloads
 changeBg();

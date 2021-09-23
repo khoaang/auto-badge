@@ -82,7 +82,7 @@ body {
 }
 
 #menu .badge-counter {
-  cursor: none;
+  cursor: default;
 }
 
 #menu .badge-counter:hover {
