@@ -22,7 +22,7 @@
         <div id="menu" class="border rounded-2 d-flex flex-row align-items-center justify-content-between">
             <div id="options">
                 <h2>Upload Spreadsheet (CSV):</h2>
-                <input type="file" id="spreadsheet-file" accept='.csv' onchange="uploadSpreadsheet()" />
+                <input type="file" id="spreadsheet-file" accept=".csv" onchange="uploadSpreadsheet()" />
                 <hr />
                 <form id="background-options" onchange="changeBg()">
                     <h2>Background:</h2>
@@ -52,7 +52,7 @@
                         <label for="bg-image-file"></label>
                     </div>
                 </form>
-                <hr>
+                <hr />
                 <form id="border-options" onchange="changeBorder()">
                     <div class="form-check border-option">
                         <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="yes-border" />
@@ -60,35 +60,38 @@
                     </div>
                     <label for="border-color">Border Color: </label>
                     <input type="color" id="border-color" value="#000000" />
-                    <br/>
+                    <br />
                     <label id="border-label" for="border-thickness" class="form-label">Thickness: 0px</label>
                     <input type="range" class="form-range" id="border-thickness" min="0" max="20" step="4" disabled />
                 </form>
-                <hr>
+                <hr />
                 <div id="text-color-options">
                     <label for="text-color-picker"><h2>Text color:</h2></label>
-                    <input type="color" id="text-color-picker" value="#000000" onchange="changeTextColor()"/>
+                    <input type="color" id="text-color-picker" value="#000000" onchange="changeTextColor()" />
                 </div>
-                <hr>
+                <hr />
                 <h2>Upload Logo IMG/Graphic:</h2>
                 <p>Top</p>
                 <input type="file" id="logo-top-image-file" accept="image/gif, image/jpeg, image/png" onchange="changeLogoTop()" />
                 <p>Bottom</p>
                 <input type="file" id="logo-bottom-image-file" accept="image/gif, image/jpeg, image/png" onchange="changeLogoBottom()" />
-                <hr>
+                <hr />
                 <button type="button" class="btn btn-primary" id="printButton" onclick="printBadges()">Print</button>
             </div>
             <div class="badge-wrapper d-flex flex-column align-items-center">
                 <div class="badge">
-                    <br>
+                    <br />
                     <div class="content-wrapper d-flex flex-column align-items-center justify-content-evenly">
-                        <img src="assets/logo.png" class="logo-top" height="130px">
-                        <img src="assets/default-profile.jpg" alt="" id="profile" height="200px">
+                        <img src="assets/logo.png" class="logo-top" height="130px" />
+                        <img src="assets/default-profile.jpg" alt="" id="profile" height="200px" />
                         <div>
                             <h3 class="name">John Doe</h3>
-                            <p class="occupation" style="font-size: 20px;">2021-2022 <br> Student Government</p>
+                            <p class="occupation" style="font-size: 20px">
+                                2021-2022 <br />
+                                Student Government
+                            </p>
                         </div>
-                        <img src="assets/logo.png" class="logo-bottom d-none" height="120px">
+                        <img src="assets/logo.png" class="logo-bottom d-none" height="120px" />
                     </div>
                 </div>
                 <div id="arrows" class="btn-group d-flex flex-row justify-content-center align-items-center" role="group">
