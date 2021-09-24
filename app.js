@@ -230,9 +230,8 @@ function printBadges() {
     // });
 
     for (image in images) {
-        loadImage(image).then(() => {
-            window.print();
-        });
+        goToImage(image);
+        window.print();
     }
 }
 function lineResize() {
