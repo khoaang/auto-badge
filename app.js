@@ -230,6 +230,10 @@ function arrowClick(arrow) {
     }
 }
 
+function selectBadges(){
+    
+}
+
 // Add persistence across reloads
 changeBg();
 changeBorder();
