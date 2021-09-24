@@ -40,7 +40,7 @@ body {
   margin: 2em;
   background-color: #32a852;
   width: 320px;
-  height: 503px;
+  height: 505px;
 }
 #menu .badge .content-wrapper {
   height: 100%;
@@ -92,7 +92,7 @@ body {
     margin: 0 !important;
     transform-origin: center !important;
     transform: scale(1.15);
-    top: 31px !important;
+    top: 30px !important;
   }
 }
 

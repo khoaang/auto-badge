@@ -228,7 +228,12 @@ function printBadges() {
     //         window.print();
     //     }
     // });
-    console.log(promises);
+
+    for (image in images) {
+        loadImage(image).then(() => {
+            window.print();
+        });
+    }
 }
 function lineResize() {
     document.querySelector("#profile").style = "height: 160px;";
