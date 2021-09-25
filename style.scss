@@ -42,7 +42,7 @@ body {
         box-sizing: border-box;
         display: block;
         width: 45%;
-        margin: 2em;
+        margin: 0 2em;
         background-color: #32a852;
         width: 320px; // 1.5x size of 2.13 px)
         height: 505px; //1.5x size of 3.4 px
@@ -60,8 +60,12 @@ body {
         }
 
         p {
+            margin: 0;
+            max-width: 200px;
             font-weight: lighter;
             font-size: 30px;
+            word-wrap: normal;
+            white-space: normal;
         }
     }
 
@@ -72,6 +76,10 @@ body {
     .badge-counter:hover {
         background: #0d6efd !important;
     }
+}
+
+#arrows {
+    width: 200px;
 }
 
 @media print {
