@@ -1,17 +1,8 @@
 body {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -21,41 +12,29 @@ body {
   max-width: 800px;
   border: black 2px;
 }
-
 #menu #options {
   margin: 2em;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   justify-items: center;
 }
-
 #menu #options h2 {
   font-weight: bold;
   font-size: 19px;
 }
-
 #menu #options label {
   font-size: 16px;
 }
-
 #menu #options .background-options {
   margin-left: 2em;
   max-width: 200px;
 }
-
 #menu #options #border-options {
   color: grey;
 }
-
 #menu .badge {
   color: black;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   display: block;
   width: 45%;
   margin: 0 2em;
@@ -63,11 +42,9 @@ body {
   width: 320px;
   height: 505px;
 }
-
 #menu .badge .content-wrapper {
   height: 100%;
 }
-
 #menu .badge h3 {
   font-size: 30px;
   margin: 0;
@@ -75,7 +52,6 @@ body {
   word-wrap: normal;
   white-space: normal;
 }
-
 #menu .badge p {
   margin: 0;
   max-width: 200px;
@@ -84,11 +60,9 @@ body {
   word-wrap: normal;
   white-space: normal;
 }
-
 #menu .badge-counter {
   cursor: default;
 }
-
 #menu .badge-counter:hover {
   background: #0d6efd !important;
 }
@@ -101,34 +75,43 @@ body {
   #arrows {
     display: none !important;
   }
+
   .select-badges {
     display: none !important;
   }
+
   body {
     margin: 0;
     padding: 0;
   }
+
   #menu {
     border: none !important;
     max-width: 100000px;
     padding: 0;
     margin: 0 !important;
   }
+
   #options {
     display: none !important;
     margin: 0;
     padding: 0;
   }
+
   .badge {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     position: relative;
     margin: 0 !important;
-    -webkit-transform-origin: center !important;
-            transform-origin: center !important;
-    -webkit-transform: scale(1.15);
-            transform: scale(1.15);
+    transform-origin: center !important;
+    transform: scale(1.15);
     top: 30px !important;
   }
+
+  .badge-select {
+    display: none !important;
+    margin: 0;
+    padding: 0;
+  }
 }
+
 /*# sourceMappingURL=style.css.map */

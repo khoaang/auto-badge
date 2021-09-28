@@ -230,8 +230,9 @@ function arrowClick(arrow) {
     }
 }
 
-function selectBadges(){
-    
+function selectBadges() {
+    $("#badgeModal").modal("show");
+    console.log(images);
 }
 
 // Add persistence across reloads
