@@ -47,6 +47,11 @@ body {
         width: 320px; // 1.5x size of 2.13 px)
         height: 505px; //1.5x size of 3.4 px
 
+        .logo-top {
+            width: 100% !important;
+            height: clamp(50px, 75px, 100px)
+        }
+
         .content-wrapper {
             height: 100%;
         }

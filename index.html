@@ -47,6 +47,24 @@
                     </div>
                 </form>
                 <hr />
+                <h2>Spacing Options</h2>
+                    <form id="spacing-options" onchange="changeSpacing()">
+                    <div id="spacing-options-wrapper" class="d-flex flex-row justify-content-between">
+                        <div class="form-check spacing-option">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="around-option"/>
+                            <label class="form-check-label" for="around-option">Large</label>
+                        </div>
+                        <div class="form-check spacing-option">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="center-option"/>
+                            <label class="form-check-label" for="center-option">Small</label>
+                        </div>
+                        <div class="form-check spacing-option">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="evenly-option" checked/>
+                            <label class="form-check-label" for="evenly-option">Medium</label>
+                        </div>
+                    </div>
+                    </form>
+                <hr />
                 <form id="border-options" onchange="changeBorder()">
                     <div class="form-check border-option">
                         <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="yes-border" />
@@ -77,8 +95,10 @@
                 <hr />
                 <div class="badge">
                     <br />
-                    <div class="content-wrapper d-flex flex-column align-items-center justify-content-evenly overflow-hidden">
-                        <img src="assets/logo-placeholder.png" class="logo-top" height="130px" />
+                    <div class="content-wrapper d-flex flex-column align-items-center justify-content-evenly overflow-hidden mh-100">
+                        <div class="d-flex justify-content-center">
+                            <img src="assets/logo-placeholder.png" class="logo-top"/>
+                        </div>
                         <div class="d-flex justify-content-center overflow-hidden" style='width: 50%;'>
                             <img src="assets/default-profile.jpg" alt="" id="profile" height="200px" />
                         </div>
@@ -87,7 +107,7 @@
                             <p class="year" style="font-size: 20px">2021-2022</p>
                             <p class="occupation" style="font-size: 20px">Student Government</p>
                         </div>
-                        <img src="assets/logo.png" class="logo-bottom d-none" height="120px" />
+                        <img src="assets/logo.png" class="logo-bottom d-none w-100" />
                     </div>
                 </div>
                 <hr />

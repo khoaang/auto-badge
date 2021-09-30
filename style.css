@@ -64,6 +64,11 @@ body {
   height: 505px;
 }
 
+#menu .badge .logo-top {
+  width: 100% !important;
+  height: clamp(50px, 75px, 100px);
+}
+
 #menu .badge .content-wrapper {
   height: 100%;
 }

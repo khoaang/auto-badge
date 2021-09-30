@@ -1,5 +1,9 @@
 // journalism ~ eternity.martinez@student.rjuhsd.us
 
+aroundOption = document.querySelector("#around-option");
+centerOption = document.querySelector("#center-option");
+evenlyOption = document.querySelector("#evenly-option");
+
 bgSolidChoice = document.querySelector("#solid-color");
 bgGradientChoice = document.querySelector("#gradient-color");
 bgImageChoice = document.querySelector("#image-background");
@@ -31,6 +35,16 @@ var images = [];
 var currentImageIndex = null;
 
 var spreadsheet = [];
+var currentSpacing = "justify-content-between";
+const badgeWrapper = document.querySelector('.content-wrapper')
+const changeSpacing = () =>{
+    badgeWrapper.classList.remove(currentSpacing);
+    if (evenlyOption.checked){currentSpacing="justify-content-evenly";}
+    else if (aroundOption.checked){currentSpacing="justify-content-around";}
+    else if (centerOption.checked){currentSpacing="justify-content-center";}
+    console.log(currentSpacing)
+    badgeWrapper.classList.add(currentSpacing)
+}
 
 function changeBgImg() {
     const blob = new Blob([bgImageFile.files[0]]);
