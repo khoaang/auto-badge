@@ -65,8 +65,11 @@ body {
 }
 
 #menu .badge .logo-top {
-  width: 100% !important;
-  height: clamp(50px, 75px, 100px);
+  display: block;
+  max-width: 300px;
+  max-height: 95px;
+  width: auto;
+  height: auto;
 }
 
 #menu .badge .content-wrapper {
