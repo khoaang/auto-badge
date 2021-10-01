@@ -68,7 +68,6 @@ function changeLogoBottom() {
     logoBottom.src = url;
     logoBottom.classList.remove("d-none");
     document.querySelector("#profile").style = "height: 175px;";
-    logoTop.style = "height: 90px;";
 }
 
 function goToImage(index) {
