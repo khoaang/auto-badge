@@ -95,6 +95,7 @@
                     <label for="text-color-picker"><h2>Text color:</h2></label>
                     <input type="color" id="text-color-picker" value="#000000" onchange="changeTextColor()" />
                 </div>
+                <input type="text" class="role-input" placeholder="Title/Company Name" onchange="document.querySelector('.occupation').innerHTML = document.querySelector('.role-input').value;">
                 <hr />
                 <h2>Upload Logo IMG/Graphic:</h2>
                 <button class="btn btn-secondary w-80" onclick="document.getElementById('logo-top-image-file').click()">Top Image Select</button>
