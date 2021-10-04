@@ -15,6 +15,10 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+.print-btn {
+  width: 100px !important;
+}
+
 #menu {
   margin: 1em;
   width: 90%;
@@ -66,6 +70,14 @@ body {
 
 #menu .badge .logo-top {
   display: block;
+  max-width: 300px;
+  max-height: 95px;
+  width: auto;
+  height: auto;
+}
+
+#menu .badge .logo-bottom {
+  display: none;
   max-width: 300px;
   max-height: 95px;
   width: auto;

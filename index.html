@@ -97,12 +97,17 @@
                 </div>
                 <hr />
                 <h2>Upload Logo IMG/Graphic:</h2>
-                <button class="btn btn-primary" onclick="document.getElementById('logo-top-image-file').click()">Top Image Select</button>
+                <button class="btn btn-secondary w-80" onclick="document.getElementById('logo-top-image-file').click()">Top Image Select</button>
                 <input type="file" id="logo-top-image-file" accept="image/gif, image/jpeg, image/png" onchange="changeLogoTop()" hidden />
-                <button class="btn btn-primary" onclick="document.getElementById('logo-bottom-image-file').click()">Bottom Image Select</button>
+                <p> </p height="3px">
+                <button class="btn btn-secondary w-80" onclick="document.getElementById('logo-bottom-image-file').click()">Bottom Image Select</button>
                 <input type="file" id="logo-bottom-image-file" accept="image/gif, image/jpeg, image/png" onchange="changeLogoBottom()" hidden />
                 <hr />
-                <button type="button" class="btn btn-primary" id="printButton" onclick="printBadges()">Print</button>
+                <div class="w-80 d-flex flex-row justify-content-around">
+                    <button type="button" class="btn btn-primary print-btn" class="print-btn" id="printButton" onclick="window.print()">Print</button>
+                    <button type="button" class="btn btn-primary print-btn" id="printButton" onclick="printBadges()">Print All</button>
+                </div>
+               
             </div>
             <div class="badge-wrapper d-flex flex-column align-items-center justify-content-between">
                 <button
@@ -127,7 +132,7 @@
                             <p class="year" style="font-size: 20px">2021-2022</p>
                             <p class="occupation" style="font-size: 20px">Student Government</p>
                         </div>
-                        <img src="assets/logo.png" class="logo-bottom d-none w-100" />
+                        <img src="assets/logo.png" class="logo-bottom"/>
                     </div>
                 </div>
                 <hr />
