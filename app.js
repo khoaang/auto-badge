@@ -72,6 +72,7 @@ function changeLogoBottom() {
     logoBottom.src = url;
     logoBottom.classList.remove("d-none");
     document.querySelector("#profile").style = "height: 175px;";
+    document.querySelector(".logo-bottom").style = "display: block;";
 }
 
 function goToImage(index) {
