@@ -31,6 +31,10 @@ rightBtn = document.querySelector(".rightBtn");
 leftBtn = document.querySelector(".leftBtn");
 badgeCounter = document.querySelector(".badge-counter");
 
+var nonPrintImages = {};
+
+var constImages;
+
 var modalBody = document.querySelector(".modal-body");
 var checkboxElement = document.querySelector(".modal-check");
 var modal = document.querySelector("#badgeModal");
@@ -122,6 +126,8 @@ function getImages() {
         for (output in outputs) {
             array[outputs[output].index] = outputs[output];
         }
+
+        constImages = outputs;
         images = outputs;
 
         //load first image
@@ -266,14 +272,46 @@ function arrowClick(arrow) {
     }
 }
 
+function uncheckAll() {
+    var badgeBoxes = document.getElementsByClassName("badge-check");
+    var array = [...badgeBoxes];
+    for (badgeBox in array) {
+        var badgeId = badgeBox;
+        badgeBox = array[badgeBox];
+        badgeBox.checked = false;
+    }
+}
+
+function checkAll() {
+    var badgeBoxes = document.getElementsByClassName("badge-check");
+    var array = [...badgeBoxes];
+    for (badgeBox in array) {
+        var badgeId = badgeBox;
+        badgeBox = array[badgeBox];
+        badgeBox.checked = true;
+    }
+}
+
 function saveBadges() {
     var badgeBoxes = document.getElementsByClassName("badge-check");
     var array = [...badgeBoxes];
-    console.log(array);
+    // console.log(array);
+    array.splice(0, 1);
     for (badgeBox in array) {
+        var badgeId = badgeBox;
         badgeBox = array[badgeBox];
-        console.log(badgeBox, badgeBox.checked);
+        // console.log(badgeId, badgeBox.checked);
+        if (!badgeBox.checked && images.includes(constImages[badgeId])) {
+            nonPrintImages[badgeId] = constImages[badgeId];
+            images.splice(images.indexOf(constImages[badgeId]), 1);
+            console.log(images.length);
+        }
+        if (badgeBox.checked && nonPrintImages[badgeId]) {
+            images.push(nonPrintImages[badgeId]);
+            console.log(images.length);
+        }
     }
+    // console.log(images);
 }
 
 // Add persistence across reloads
