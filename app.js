@@ -40,15 +40,19 @@ var currentImageIndex = null;
 
 var spreadsheet = [];
 var currentSpacing = "justify-content-between";
-const badgeWrapper = document.querySelector('.content-wrapper')
-const changeSpacing = () =>{
+const badgeWrapper = document.querySelector(".content-wrapper");
+const changeSpacing = () => {
     badgeWrapper.classList.remove(currentSpacing);
-    if (evenlyOption.checked){currentSpacing="justify-content-evenly";}
-    else if (aroundOption.checked){currentSpacing="justify-content-around";}
-    else if (centerOption.checked){currentSpacing="justify-content-center";}
-    console.log(currentSpacing)
-    badgeWrapper.classList.add(currentSpacing)
-}
+    if (evenlyOption.checked) {
+        currentSpacing = "justify-content-evenly";
+    } else if (aroundOption.checked) {
+        currentSpacing = "justify-content-around";
+    } else if (centerOption.checked) {
+        currentSpacing = "justify-content-center";
+    }
+    console.log(currentSpacing);
+    badgeWrapper.classList.add(currentSpacing);
+};
 
 function changeBgImg() {
     const blob = new Blob([bgImageFile.files[0]]);
@@ -123,6 +127,20 @@ function getImages() {
         //load first image
         goToImage(0);
         badgeCounter.innerHTML = currentImageIndex + 1 + "/" + images.length;
+
+        //load into modal
+        for (image in images) {
+            var checkbox = checkboxElement.cloneNode(true);
+            console.log(checkbox);
+            console.log(images[image]["row"]);
+
+            checkbox.id = image;
+
+            checkbox.childNodes[3].firstChild.textContent = images[image]["row"];
+
+            modalBody.append(checkbox);
+        }
+        checkboxElement.hidden = true;
     });
 }
 
@@ -248,19 +266,7 @@ function arrowClick(arrow) {
     }
 }
 
-function selectBadges() {
-    for (image in images) {
-        var checkbox = checkboxElement.cloneNode(true);
-        console.log(checkbox);
-        console.log(images[image]["row"]);
-
-        checkbox.id = "lol";
-
-        modalBody.append(checkbox);
-
-        document.getElementById("lol").lastChild.innerHTML = images[image]["row"];
-    }
-}
+function selectBadges() {}
 
 // Add persistence across reloads
 changeBg();
