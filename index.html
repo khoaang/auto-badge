@@ -113,7 +113,6 @@
                 <button
                     type="button"
                     class="btn btn-primary badge-select"
-                    onclick="selectBadges()"
                     data-bs-toggle="modal"
                     data-bs-target="#badgeModal"
                 >
@@ -152,13 +151,13 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-check modal-check">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked />
-                            <label class="form-check-label" for="flexCheckChecked"> Checked checkbox </label>
+                            <input class="form-check-input badge-check" type="checkbox" value="" id="flexCheckChecked" checked />
+                            <label class="form-check-label" for="flexCheckChecked"> Example Box for JS (Don't delete) </label>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="saveBadges()">Save changes</button>
                     </div>
                 </div>
             </div>

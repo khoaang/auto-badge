@@ -266,7 +266,15 @@ function arrowClick(arrow) {
     }
 }
 
-function selectBadges() {}
+function saveBadges() {
+    var badgeBoxes = document.getElementsByClassName("badge-check");
+    var array = [...badgeBoxes];
+    console.log(array);
+    for (badgeBox in array) {
+        badgeBox = array[badgeBox];
+        console.log(badgeBox, badgeBox.checked);
+    }
+}
 
 // Add persistence across reloads
 changeBg();
