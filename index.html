@@ -6,9 +6,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="style.css" />
 
-        <link href="bootstrap-5.1.1-dist/css/bootstrap.min.css" rel="stylesheet" />
-        <script src="bootstrap-5.1.1-dist/js/bootstrap.min.js"></script>
-        <script src="bootstrap-5.1.1-dist/jquery-3.6.0.min.js"></script>
+        <!-- <link href="bootstrap-5.1.1-dist/css/bootstrap.min.css" rel="stylesheet" /> -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+            crossorigin="anonymous"
+        />
+
+        <!-- <script src="bootstrap-5.1.1-dist/js/bootstrap.min.js"></script>
+        <script src="bootstrap-5.1.1-dist/jquery-3.6.0.min.js"></script> -->
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"
+        ></script>
+
         <title>badge</title>
     </head>
 
@@ -48,22 +62,22 @@
                 </form>
                 <hr />
                 <h2>Spacing Options</h2>
-                    <form id="spacing-options" onchange="changeSpacing()">
+                <form id="spacing-options" onchange="changeSpacing()">
                     <div id="spacing-options-wrapper" class="d-flex flex-row justify-content-between">
                         <div class="form-check spacing-option">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="around-option"/>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="around-option" />
                             <label class="form-check-label" for="around-option">Large</label>
                         </div>
                         <div class="form-check spacing-option">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="center-option"/>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="center-option" />
                             <label class="form-check-label" for="center-option">Small</label>
                         </div>
                         <div class="form-check spacing-option">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="evenly-option" checked/>
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="evenly-option" checked />
                             <label class="form-check-label" for="evenly-option">Medium</label>
                         </div>
                     </div>
-                    </form>
+                </form>
                 <hr />
                 <form id="border-options" onchange="changeBorder()">
                     <div class="form-check border-option">
@@ -91,14 +105,21 @@
                 <button type="button" class="btn btn-primary" id="printButton" onclick="printBadges()">Print</button>
             </div>
             <div class="badge-wrapper d-flex flex-column align-items-center justify-content-between">
-                <button type="button" class="btn btn-primary badge-select" onclick="selectBadges()">Select Badges</button>
+                <button
+                    type="button"
+                    class="btn btn-primary badge-select"
+                    onclick="selectBadges()"
+                    data-bs-toggle="modal"
+                    data-bs-target="#badgeModal"
+                >
+                    Select Badges
+                </button>
+                <br />
                 <div class="badge">
                     <br />
-                    <div class="content-wrapper d-flex flex-column align-items-center justify-content-evenly overflow-hidden mh-100">
-                        <div class="d-flex justify-content-center">
-                            <img src="assets/logo-placeholder.png" class="logo-top"/>
-                        </div>
-                        <div class="d-flex justify-content-center overflow-hidden" style='width: 50%;'>
+                    <div class="content-wrapper d-flex flex-column align-items-center justify-content-evenly overflow-hidden">
+                        <img src="assets/logo-placeholder.png" class="logo-top" height="130px" />
+                        <div class="d-flex justify-content-center overflow-hidden" style="width: 50%">
                             <img src="assets/default-profile.jpg" alt="" id="profile" height="200px" />
                         </div>
                         <div>

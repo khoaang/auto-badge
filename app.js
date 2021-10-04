@@ -31,6 +31,10 @@ rightBtn = document.querySelector(".rightBtn");
 leftBtn = document.querySelector(".leftBtn");
 badgeCounter = document.querySelector(".badge-counter");
 
+var modalBody = document.querySelector(".modal-body");
+var checkboxElement = document.querySelector(".form-check");
+var modal = document.querySelector("#badgeModal");
+
 var images = [];
 var currentImageIndex = null;
 
@@ -244,8 +248,17 @@ function arrowClick(arrow) {
 }
 
 function selectBadges() {
-    $("#badgeModal").modal("show");
-    console.log(images);
+    for (image in images) {
+        var checkbox = checkboxElement.cloneNode(true);
+        console.log(checkbox);
+        console.log(images[image]["row"]);
+
+        checkbox.id = "lol";
+
+        modalBody.append(checkbox);
+
+        document.getElementById("lol").lastChild.innerHTML = images[image]["row"];
+    }
 }
 
 // Add persistence across reloads
