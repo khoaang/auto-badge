@@ -83,10 +83,10 @@
                 </div>
                 <hr />
                 <h2>Upload Logo IMG/Graphic:</h2>
-                <p>Top</p>
-                <input type="file" id="logo-top-image-file" accept="image/gif, image/jpeg, image/png" onchange="changeLogoTop()" />
-                <p>Bottom</p>
-                <input type="file" id="logo-bottom-image-file" accept="image/gif, image/jpeg, image/png" onchange="changeLogoBottom()" />
+                <button onclick="document.getElementById('logo-top-image-file').click()">Top Image Select</button>
+                <input type="file" id="logo-top-image-file" accept="image/gif, image/jpeg, image/png" onchange="changeLogoTop()" hidden/>
+                <button onclick="document.getElementById('logo-bottom-image-file').click()">Bottom Image Select</button>
+                <input type="file" id="logo-bottom-image-file" accept="image/gif, image/jpeg, image/png" onchange="changeLogoBottom()" hidden/>
                 <hr />
                 <button type="button" class="btn btn-primary" id="printButton" onclick="printBadges()">Print</button>
             </div>
