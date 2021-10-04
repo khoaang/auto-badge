@@ -32,7 +32,7 @@ leftBtn = document.querySelector(".leftBtn");
 badgeCounter = document.querySelector(".badge-counter");
 
 var modalBody = document.querySelector(".modal-body");
-var checkboxElement = document.querySelector(".form-check");
+var checkboxElement = document.querySelector(".modal-check");
 var modal = document.querySelector("#badgeModal");
 
 var images = [];
