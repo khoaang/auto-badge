@@ -71,7 +71,7 @@ body {
 #menu .badge .logo-top {
   display: block;
   max-width: 300px;
-  max-height: 95px;
+  max-height: 150px;
   width: auto;
   height: auto;
 }
@@ -79,7 +79,7 @@ body {
 #menu .badge .logo-bottom {
   display: none;
   max-width: 300px;
-  max-height: 95px;
+  max-height: 130px;
   width: auto;
   height: auto;
 }
