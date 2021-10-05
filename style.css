@@ -94,6 +94,7 @@ body {
   max-width: 300px;
   word-wrap: normal;
   white-space: normal;
+  font-weight: bold;
 }
 
 #menu .badge p {
