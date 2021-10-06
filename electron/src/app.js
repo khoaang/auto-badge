@@ -149,8 +149,9 @@ function getImages() {
         checkboxElement.hidden = true;
     });
 }
-
+uploaded = false;
 function uploadSpreadsheet() {
+    if(uploaded){location.reload();}
     var file = document.querySelector("#spreadsheet-file").files[0];
     const reader = new FileReader();
     reader.readAsText(file);
