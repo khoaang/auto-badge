@@ -24,9 +24,6 @@
     <body class="bg-light bg-gradient">
         <div id="menu" class="border rounded-2 d-flex flex-row align-items-center justify-content-between">
             <div id="options">
-                <h2>Upload Spreadsheet (CSV):</h2>
-                <input type="file" id="spreadsheet-file" accept=".csv" onchange="uploadSpreadsheet()" />
-                <hr />
                 <form id="background-options" onchange="changeBg()">
                     <h2>Background:</h2>
                     <div id="bg-options-wrapper" class="d-flex flex-row justify-content-between">
@@ -146,6 +143,9 @@
                         <h5 class="modal-title" id="exampleModalLabel">Select Badges</h5>
                     </div>
                     <div class="modal-body">
+                        <button class="btn btn-warning" onclick="document.getElementById('spreadsheet-file').click()">Upload Spreadsheet (CSV)</button>
+                        <input type="file" id="spreadsheet-file" accept=".csv" onchange="uploadSpreadsheet()" hidden/>
+                        <hr width="220px">
                         <div class="form-check modal-check">
                             <input class="form-check-input badge-check" type="checkbox" value="" id="flexCheckChecked" checked />
                             <label class="form-check-label" for="flexCheckChecked">No Spreadsheet</label>
