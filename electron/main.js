@@ -1,13 +1,13 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
 
+app.commandLine.appendSwitch("kiosk-printing", "");
+
 function createWindow() {
     const win = new BrowserWindow({
         width: 900,
         height: 920,
-        webPreferences: {
-            preload: path.join(__dirname, "preload.js"),
-        },
+        kiosk: true,
     });
     win.loadFile("src/index.html");
 }
