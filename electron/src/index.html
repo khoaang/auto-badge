@@ -48,7 +48,7 @@
                         <input type="color" id="solid-color-picker" value="#aed7e8" />
                     </div>
                     <div id="gradient-options" class="background-options" hidden>
-                        <p>gradient stuff</p>
+                        <div class='d-flex flex-row'><input id="gradient-top" type="color" onchange="changeGradient()">&nbsp;to&nbsp;<input type="color" id="gradient-bottom" onchange="changeGradient()"></div>
                     </div>
                     <div id="image-options" class="background-options" hidden>
                         <input type="file" id="bg-image-file" accept="image/gif, image/jpeg, image/png" onchange="changeBgImg(event)" />
@@ -148,7 +148,7 @@
                     <div class="modal-body">
                         <div class="form-check modal-check">
                             <input class="form-check-input badge-check" type="checkbox" value="" id="flexCheckChecked" checked />
-                            <label class="form-check-label" for="flexCheckChecked"> Example Box for JS (Don't delete) </label>
+                            <label class="form-check-label" for="flexCheckChecked">No Spreadsheet</label>
                         </div>
                     </div>
                     <div class="modal-footer">

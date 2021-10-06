@@ -168,6 +168,12 @@ function uploadSpreadsheet() {
         getImages();
     };
 }
+const changeGradient = () => {
+    gradientTop = document.getElementById("gradient-top").value;
+    gradientBottom = document.getElementById("gradient-bottom").value;
+    background = `background-image: linear-gradient(${gradientTop}, ${gradientBottom});`
+    changeStyling();
+}
 const changeBg = () => {
     if (bgSolidChoice.checked) {
         document.querySelector("#bg-color-options").hidden = false;
@@ -213,6 +219,7 @@ const changeTextColor = () => {
 };
 
 const changeStyling = () => {
+    console.log(background)
     badge.style = border + background + colorStyle;
 };
 
