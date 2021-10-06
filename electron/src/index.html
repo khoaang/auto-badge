@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"
+        ></script>
+
+        <title>badge</title>
+    </head>
+
+    <body class="bg-light bg-gradient">
+        <div id="menu" class="border rounded-2 d-flex flex-row align-items-center justify-content-between">
+            <div id="options">
+                <h2>Upload Spreadsheet (CSV):</h2>
+                <input type="file" id="spreadsheet-file" accept=".csv" onchange="uploadSpreadsheet()" />
+                <hr />
+                <form id="background-options" onchange="changeBg()">
+                    <h2>Background:</h2>
+                    <div id="bg-options-wrapper" class="d-flex flex-row justify-content-between">
+                        <div class="form-check background-option">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="solid-color" checked />
+                            <label class="form-check-label" for="solid-color"> Solid Color </label>
+                        </div>
+                        <div class="form-check background-option">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="gradient-color" />
+                            <label class="form-check-label" for="gradient-color"> Gradient </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="image-background" />
+                            <label class="form-check-label" for="image-background"> Image </label>
+                        </div>
+                    </div>
+                    <div id="bg-color-options" class="background-options">
+                        <label for="solid-color-picker">Current Color: </label>
+                        <input type="color" id="solid-color-picker" value="#aed7e8" />
+                    </div>
+                    <div id="gradient-options" class="background-options" hidden>
+                        <p>gradient stuff</p>
+                    </div>
+                    <div id="image-options" class="background-options" hidden>
+                        <input type="file" id="bg-image-file" accept="image/gif, image/jpeg, image/png" onchange="changeBgImg(event)" />
+                        <label for="bg-image-file"></label>
+                    </div>
+                </form>
+                <hr />
+                <h2>Spacing Options</h2>
+                <form id="spacing-options" onchange="changeSpacing()">
+                    <div id="spacing-options-wrapper" class="d-flex flex-row justify-content-between">
+                        <div class="form-check spacing-option">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="around-option" />
+                            <label class="form-check-label" for="around-option">Large</label>
+                        </div>
+                        <div class="form-check spacing-option">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="center-option" />
+                            <label class="form-check-label" for="center-option">Small</label>
+                        </div>
+                        <div class="form-check spacing-option">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="evenly-option" checked />
+                            <label class="form-check-label" for="evenly-option">Medium</label>
+                        </div>
+                    </div>
+                </form>
+                <hr />
+                <form id="border-options" onchange="changeBorder()">
+                    <div class="form-check border-option">
+                        <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="yes-border" />
+                        <label id="borderLabel" class="form-check-label" for="yes-border"><h2>Border:</h2></label>
+                    </div>
+                    <label for="border-color">Border Color: </label>
+                    <input type="color" id="border-color" value="#000000" />
+                    <br />
+                    <label id="border-label" for="border-thickness" class="form-label">Thickness: 0px</label>
+                    <input type="range" class="form-range" id="border-thickness" min="0" max="20" step="4" disabled />
+                </form>
+                <hr />
+                <div id="text-color-options">
+                    <label for="text-color-picker"><h2>Text color:</h2></label>
+                    <input type="color" id="text-color-picker" value="#000000" onchange="changeTextColor()" />
+                </div>
+                <input type="text" class="role-input" placeholder="Title/Company Name" onchange="document.querySelector('.occupation').innerHTML = document.querySelector('.role-input').value;">
+                <hr />
+                <h2>Upload Logo IMG/Graphic:</h2>
+                <button class="btn btn-secondary w-80" onclick="document.getElementById('logo-top-image-file').click()">Top Image Select</button>
+                <input type="file" id="logo-top-image-file" accept="image/gif, image/jpeg, image/png" onchange="changeLogoTop()" hidden />
+                <p> </p height="3px">
+                <button class="btn btn-secondary w-80" onclick="document.getElementById('logo-bottom-image-file').click()">Bottom Image Select</button>
+                <input type="file" id="logo-bottom-image-file" accept="image/gif, image/jpeg, image/png" onchange="changeLogoBottom()" hidden />
+                <hr />
+                <div class="w-80 d-flex flex-row justify-content-around">
+                    <button type="button" class="btn btn-primary print-btn" class="print-btn" id="printButton" onclick="window.print()">Print</button>
+                    <button type="button" class="btn btn-primary print-btn" id="printButton" onclick="printBadges()">Print All</button>
+                </div>
+               
+            </div>
+            <div class="badge-wrapper d-flex flex-column align-items-center justify-content-between">
+                <button
+                    type="button"
+                    class="btn btn-primary badge-select"
+                    data-bs-toggle="modal"
+                    data-bs-target="#badgeModal"
+                >
+                    Select Badges
+                </button>
+                <br />
+                <div class="badge">
+                    <br />
+                    <div class="content-wrapper d-flex flex-column align-items-center justify-content-evenly overflow-hidden">
+                        <img src="assets/logo-placeholder.png" class="logo-top" height="130px" />
+                        <div class="d-flex justify-content-center overflow-hidden" style="width: 60%">
+                            <img src="assets/default-profile.jpg" alt="" id="profile" height="200px" />
+                        </div>
+                        <div>
+                            <b><h3 class="name">John Doe</h3></b>
+                            <p class="year" style="font-size: 20px">2021-2022</p>
+                            <p class="occupation" style="font-size: 20px"></p>
+                        </div>
+                        <img src="" class="logo-bottom"/>
+                    </div>
+                </div>
+                <hr />
+                <div id="arrows" class="btn-group d-flex flex-row justify-content-center align-items-center" role="group">
+                    <button type="button" class="left-btn btn btn-primary" onclick="arrowClick('left')"><</button>
+                    <button type="button" class="badge-counter btn btn-primary">1</button>
+                    <button type="button" class="right-btn btn btn-primary" onclick="arrowClick('right')">></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="badgeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Select Badges</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-check modal-check">
+                            <input class="form-check-input badge-check" type="checkbox" value="" id="flexCheckChecked" checked />
+                            <label class="form-check-label" for="flexCheckChecked"> Example Box for JS (Don't delete) </label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-secondary" onclick="checkAll()">Check All</button>
+                        <button type="button" class="btn btn-secondary" onclick="uncheckAll()">Uncheck All</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="saveBadges()">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
