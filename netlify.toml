@@ -1,2 +1,3 @@
 [build]
-    base = "project/"
+    base = "electron/"
+    publish = "/src"
