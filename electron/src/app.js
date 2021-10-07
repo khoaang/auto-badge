@@ -1,5 +1,3 @@
-// journalism ~ eternity.martinez@student.rjuhsd.us
-
 aroundOption = document.querySelector("#around-option");
 centerOption = document.querySelector("#center-option");
 evenlyOption = document.querySelector("#evenly-option");
@@ -171,9 +169,9 @@ function uploadSpreadsheet() {
 const changeGradient = () => {
     gradientTop = document.getElementById("gradient-top").value;
     gradientBottom = document.getElementById("gradient-bottom").value;
-    background = `background-image: linear-gradient(${gradientTop}, ${gradientBottom});`
+    background = `background-image: linear-gradient(${gradientTop}, ${gradientBottom});`;
     changeStyling();
-}
+};
 const changeBg = () => {
     if (bgSolidChoice.checked) {
         document.querySelector("#bg-color-options").hidden = false;
@@ -219,7 +217,7 @@ const changeTextColor = () => {
 };
 
 const changeStyling = () => {
-    console.log(background)
+    console.log(background);
     badge.style = border + background + colorStyle;
 };
 
@@ -241,10 +239,27 @@ async function loadImage(imageLink) {
     });
 }
 
+async function onRecieve() {}
+
 function printBadges() {
-    for (image in images) {
-        goToImage(image);
-        window.print();
+    if (window.require) {
+        console.log("Running in Electron");
+        const ipc = require("electron").ipcRenderer;
+        (async () => {
+            for (image in images) {
+                goToImage(image);
+                ipc.send("silent-print", "print");
+                console.log("Print request sent");
+                ipc.on("silent-print-response", () => {});
+                console.log("Confirmation recieved, going to next badge");
+            }
+        })();
+    } else {
+        console.warn("App not running inside Electron!");
+        for (image in images) {
+            goToImage(image);
+            window.print();
+        }
     }
 }
 function lineResize() {
@@ -319,6 +334,18 @@ function saveBadges() {
         }
     }
     // console.log(images);
+}
+
+function print() {
+    if (window.require) {
+        console.log("Running in Electron");
+        const ipc = require("electron").ipcRenderer;
+        ipc.send("silent-print", "print");
+        console.log("Print request sent");
+    } else {
+        console.warn("App not running inside Electron!");
+        window.print();
+    }
 }
 
 // Add persistence across reloads

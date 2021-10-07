@@ -1,15 +1,32 @@
 const { app, BrowserWindow } = require("electron");
 const path = require("path");
+const ipc = require("electron").ipcMain;
 
-app.commandLine.appendSwitch("kiosk-printing", "");
+app.commandLine.appendArgument("kiosk-printing");
+
+if (require("electron-squirrel-startup")) return app.quit();
+
+let win;
 
 function createWindow() {
-    const win = new BrowserWindow({
-        width: 900,
-        height: 920,
-        kiosk: true,
+    win = new BrowserWindow({
+        width: 850,
+        height: 800,
+        webPreferences: {
+            contextIsolation: false,
+            nodeIntegration: true,
+        },
     });
     win.loadFile("src/index.html");
+
+    win.webContents.on("did-finish-load", function () {
+        ipc.on("silent-print", (event, arg) => {
+            console.log("Print request recieved");
+            win.webContents.print({ pageRanges: "1", silent: true });
+            win.webContents.send("silent-print-response", "done");
+            console.log("Done");
+        });
+    });
 }
 
 app.whenReady().then(() => {
