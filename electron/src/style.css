@@ -69,10 +69,7 @@ body {
 
 #menu .badge .logo-top {
   display: block;
-  max-width: 300px;
   max-height: 150px;
-  width: auto;
-  height: auto;
 }
 
 #menu .badge .logo-bottom {
@@ -140,8 +137,6 @@ body {
     padding: 0;
   }
   .badge {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
     position: relative;
     margin: 0 !important;
     -webkit-transform-origin: center !important;
