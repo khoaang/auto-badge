@@ -77,7 +77,6 @@ function changeLogoBottom() {
     console.log(url);
     logoBottom.src = url;
     logoBottom.classList.remove("d-none");
-    document.querySelector("#profile").style = "height: 175px;";
     document.querySelector(".logo-bottom").style = "display: block;";
 }
 
@@ -147,8 +146,9 @@ function getImages() {
         checkboxElement.hidden = true;
     });
 }
-
+uploaded = false;
 function uploadSpreadsheet() {
+    if(uploaded){location.reload();}
     var file = document.querySelector("#spreadsheet-file").files[0];
     const reader = new FileReader();
     reader.readAsText(file);

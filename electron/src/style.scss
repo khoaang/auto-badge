@@ -52,10 +52,7 @@ body {
 
         .logo-top {
             display: block;
-            max-width: 300px;
             max-height: 150px;
-            width: auto;
-            height: auto;
         }
 
         .logo-bottom {
@@ -130,7 +127,6 @@ body {
     }
 
     .badge {
-        box-sizing: border-box;
         position: relative;
         margin: 0 !important;
         transform-origin: center !important;
