@@ -339,8 +339,7 @@ function saveBadges() {
 function print() {
     if (window.require) {
         console.log("Running in Electron");
-        const ipc = require("electron").ipcRenderer;
-        ipc.send("silent-print", "print");
+        require("electron").ipcRenderer.send("silent-print", "print");
         console.log("Print request sent");
     } else {
         console.warn("App not running inside Electron!");
