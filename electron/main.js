@@ -16,6 +16,7 @@ function createWindow() {
             contextIsolation: false,
             nodeIntegration: true,
         },
+        icon: "src/assets/autobadge-icon.png"
     });
     win.loadFile("src/index.html");
 
