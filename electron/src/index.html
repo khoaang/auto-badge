@@ -96,19 +96,19 @@
                onchange="document.querySelector('.occupation').innerHTML = document.querySelector('.role-input').value;">
         <hr/>
         <h2>Upload Logo IMG/Graphic:</h2>
-        <button class="btn btn-secondary w-80" onclick="document.getElementById('logo-top-image-file').click()">Top
+        <button class="btn btn-secondary" onclick="document.getElementById('logo-top-image-file').click()">Top
             Image Select
         </button>
         <input type="file" id="logo-top-image-file" accept="image/gif, image/jpeg, image/png" onchange="changeLogoTop()"
                hidden/>
         <p height="3px"></p>
-        <button class="btn btn-secondary w-80" onclick="document.getElementById('logo-bottom-image-file').click()">
+        <button class="btn btn-secondary " onclick="document.getElementById('logo-bottom-image-file').click()">
             Bottom Image Select
         </button>
         <input type="file" id="logo-bottom-image-file" accept="image/gif, image/jpeg, image/png"
                onchange="changeLogoBottom()" hidden/>
         <hr/>
-        <div class="w-80 d-flex flex-row justify-content-around">
+        <div class="d-flex flex-row justify-content-around">
             <button type="button" class="btn btn-primary print-btn" class="print-btn" id="printButton"
                     onclick="print()">
                 Print
