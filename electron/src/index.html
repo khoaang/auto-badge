@@ -6,17 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="style.css"/>
 
-    <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
-            crossorigin="anonymous"
-    />
-    <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-            crossorigin="anonymous"
-    ></script>
+            crossorigin="anonymous"></script>
 
     <title>badge</title>
 </head>
@@ -107,7 +101,8 @@
         <hr/>
         <div class="w-80 d-flex flex-row justify-content-around">
             <button type="button" class="btn btn-primary print-btn" class="print-btn" id="printButton"
-                    onclick="print()">Print
+                    onclick="print()">
+                Print
             </button>
             <button type="button" class="btn btn-primary print-btn" id="printButton" onclick="printBadges()">Print All
             </button>
@@ -115,12 +110,7 @@
 
     </div>
     <div class="badge-wrapper d-flex flex-column align-items-center justify-content-between">
-        <button
-                type="button"
-                class="btn btn-primary badge-select"
-                data-bs-toggle="modal"
-                data-bs-target="#badgeModal"
-        >
+        <button type="button" class="btn btn-primary badge-select" data-bs-toggle="modal" data-bs-target="#badgeModal">
             Spreadsheet Options
         </button>
         <br/>
@@ -169,7 +159,6 @@
                 </div>
             </div>
             <div class="modal-footer">
-
                 <button type="button" class="btn btn-secondary" onclick="checkAll()">Check All</button>
                 <button type="button" class="btn btn-secondary" onclick="uncheckAll()">Uncheck All</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
