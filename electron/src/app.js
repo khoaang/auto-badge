@@ -43,6 +43,9 @@ var currentImageIndex = null;
 var spreadsheet = [];
 var currentSpacing = "justify-content-between";
 const badgeWrapper = document.querySelector(".content-wrapper");
+
+
+document.querySelector(".year").innerHTML = `${new Date().getFullYear()}-${new Date().getFullYear()+1}`
 const changeSpacing = () => {
     badgeWrapper.classList.remove(currentSpacing);
     if (evenlyOption.checked) {
