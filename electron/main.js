@@ -21,8 +21,8 @@ function createWindow() {
 
     win.webContents.on("did-finish-load", function () {
         ipc.on("silent-print", (event, arg) => {
-            console.log("Print request recieved");
-            win.webContents.print({ pageRanges: "1", silent: true });
+            console.log("Print request received");
+            win.webContents.print({ pageRanges: "1", silent: true, printBackground: true, pageSize: {width:54000 , height:86000}});
             win.webContents.send("silent-print-response", "done");
             console.log("Done");
         });

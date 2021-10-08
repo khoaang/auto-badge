@@ -239,21 +239,29 @@ async function loadImage(imageLink) {
     });
 }
 
-async function onRecieve() {}
+function fart (x){
+    const ipc = require("electron").ipcRenderer;
+    goToImage(x);
+    ipc.send("silent-print", "print");
+    console.log("Print request sent");
+    ipc.once("silent-print-response", () => {
+        if(!(x+1 > images.length - 1)){
+            console.log("Going to next badge", x+1);
+            setTimeout(function(){
+                fart(x+1);
+            }, 500)
+        }
+        else{
+            document.body.classList.remove("printStyles");
+        }
+    });
+}
 
 function printBadges() {
     if (window.require) {
         console.log("Running in Electron");
-        const ipc = require("electron").ipcRenderer;
-        (async () => {
-            for (image in images) {
-                goToImage(image);
-                ipc.send("silent-print", "print");
-                console.log("Print request sent");
-                ipc.on("silent-print-response", () => {});
-                console.log("Confirmation recieved, going to next badge");
-            }
-        })();
+        document.body.classList.add("printStyles");
+        fart(0)
     } else {
         console.warn("App not running inside Electron!");
         for (image in images) {
@@ -338,10 +346,17 @@ function saveBadges() {
 
 function print() {
     if (window.require) {
+        const ipc = require("electron").ipcRenderer;
+
+        document.body.classList.add("printStyles");
         console.log("Running in Electron");
         require("electron").ipcRenderer.send("silent-print", "print");
         console.log("Print request sent");
-    } else {
+        ipc.once("silent-print-response", () => {
+            document.body.classList.remove("printStyles");
+        })
+
+        } else {
         console.warn("App not running inside Electron!");
         window.print();
     }

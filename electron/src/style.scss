@@ -140,3 +140,45 @@ body {
         padding: 0;
     }
 }
+
+.printStyles{
+    #arrows {
+        display: none !important;
+    }
+
+    .select-badges {
+        display: none !important;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    #menu {
+        border: none !important;
+        max-width: 100000px;
+        padding: 0;
+        margin: 0 !important;
+    }
+
+    #options {
+        display: none !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    .badge {
+        position: relative;
+        margin: 0 !important;
+        transform-origin: center !important;
+        transform: scale(1.15);
+        top: 30px !important;
+    }
+
+    .badge-select {
+        display: none !important;
+        margin: 0;
+        padding: 0;
+    }
+}
