@@ -6,6 +6,48 @@ body {
     font-family: "Open Sans", sans-serif;
 }
 
+#menu {
+    animation: load-in 1s ease;
+}
+
+#splash {
+    position: fixed;
+    animation: shrink 1s forwards;
+}
+
+@keyframes load-in {
+    0% {
+
+        opacity: 0;
+    }
+
+    75% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes shrink {
+    0% {
+        filter: hue-rotate(45deg);
+        width: 500px;
+    }
+
+    75% {
+        width: 500px;
+        opacity: 1;
+    }
+
+    100% {
+        filter: hue-rotate(0deg);
+        opacity: 0;
+        display: none !important;
+    }
+}
+
 .print-btn {
     width: 100px !important;
 }

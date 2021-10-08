@@ -15,6 +15,77 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+#menu {
+  -webkit-animation: load-in 1s ease;
+          animation: load-in 1s ease;
+}
+
+#splash {
+  position: fixed;
+  -webkit-animation: shrink 1s forwards;
+          animation: shrink 1s forwards;
+}
+
+@-webkit-keyframes load-in {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes load-in {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes shrink {
+  0% {
+    -webkit-filter: hue-rotate(45deg);
+            filter: hue-rotate(45deg);
+    width: 500px;
+  }
+  75% {
+    width: 500px;
+    opacity: 1;
+  }
+  100% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+    opacity: 0;
+    display: none !important;
+  }
+}
+
+@keyframes shrink {
+  0% {
+    -webkit-filter: hue-rotate(45deg);
+            filter: hue-rotate(45deg);
+    width: 500px;
+  }
+  75% {
+    width: 500px;
+    opacity: 1;
+  }
+  100% {
+    -webkit-filter: hue-rotate(0deg);
+            filter: hue-rotate(0deg);
+    opacity: 0;
+    display: none !important;
+  }
+}
+
 .print-btn {
   width: 100px !important;
 }
