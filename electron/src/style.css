@@ -1,8 +1,17 @@
 body {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -16,38 +25,59 @@ body {
   max-width: 800px;
   border: black 2px;
 }
+
 #menu #options {
   margin: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   justify-items: center;
 }
+
 #menu #options h2 {
   font-weight: bold;
   font-size: 15px;
 }
+
 #menu #options label {
   font-size: 15px;
 }
+
 #menu #options .background-options {
   margin-left: 2em;
   max-width: 200px;
 }
+
 #menu #options #border-options {
   color: grey;
 }
+
+#menu * {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
 #menu .badge {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
   color: black;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: block;
   margin: 0 2em;
   width: 320px;
   height: 505px;
 }
+
 #menu .badge .logo-top {
   display: block;
   max-height: 150px;
 }
+
 #menu .badge .logo-bottom {
   display: none;
   max-width: 300px;
@@ -55,9 +85,11 @@ body {
   width: auto;
   height: auto;
 }
+
 #menu .badge .content-wrapper {
   height: 100%;
 }
+
 #menu .badge h3 {
   font-size: 30px;
   margin: 0;
@@ -66,6 +98,7 @@ body {
   white-space: normal;
   font-weight: bold;
 }
+
 #menu .badge p {
   margin: 0;
   max-width: 200px;
@@ -74,9 +107,11 @@ body {
   word-wrap: normal;
   white-space: normal;
 }
+
 #menu .badge-counter {
   cursor: default;
 }
+
 #menu .badge-counter:hover {
   background: #0d6efd !important;
 }
@@ -89,75 +124,86 @@ body {
   #arrows {
     display: none !important;
   }
-
   .select-badges {
     display: none !important;
   }
-
   body {
     margin: 0;
     padding: 0;
   }
-
   #menu {
     border: none !important;
     max-width: 100000px;
     padding: 0;
     margin: 0 !important;
   }
-
   #options {
     display: none !important;
     margin: 0;
     padding: 0;
   }
-
   .badge {
     position: relative;
     margin: 0 !important;
-    transform-origin: center !important;
-    transform: scale(1.15);
+    -webkit-transform-origin: center !important;
+            transform-origin: center !important;
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
     top: 30px !important;
   }
-
   .badge-select {
     display: none !important;
     margin: 0;
     padding: 0;
   }
+  #credit {
+    display: none !important;
+  }
 }
+
 .printStyles #arrows {
   display: none !important;
 }
+
 .printStyles .select-badges {
   display: none !important;
 }
+
 .printStyles body {
   margin: 0;
   padding: 0;
 }
+
 .printStyles #menu {
   border: none !important;
   max-width: 100000px;
   padding: 0;
   margin: 0 !important;
 }
+
 .printStyles #options {
   display: none !important;
   margin: 0;
   padding: 0;
 }
+
 .printStyles .badge {
   position: relative;
   margin: 0 !important;
-  transform-origin: center !important;
-  transform: scale(1.15);
+  -webkit-transform-origin: center !important;
+          transform-origin: center !important;
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
   top: 30px !important;
 }
+
 .printStyles .badge-select {
   display: none !important;
   margin: 0;
   padding: 0;
 }
 
+.printStyles #credit {
+  display: none !important;
+}
 /*# sourceMappingURL=style.css.map */

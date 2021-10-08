@@ -41,7 +41,12 @@ body {
         }
     }
 
+    * {
+        transition: all 0.2s;
+    }
+
     .badge {
+        transition: all 0.2s;
         color: black;
         box-sizing: border-box;
         display: block;
@@ -138,9 +143,13 @@ body {
         margin: 0;
         padding: 0;
     }
+
+    #credit {
+        display: none !important;
+    }
 }
 
-.printStyles{
+.printStyles {
     #arrows {
         display: none !important;
     }
@@ -179,5 +188,9 @@ body {
         display: none !important;
         margin: 0;
         padding: 0;
+    }
+
+    #credit {
+        display: none !important;
     }
 }

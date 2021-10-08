@@ -20,6 +20,11 @@
 <body class="bg-light bg-gradient">
 <div id="menu" class="border rounded-2 d-flex flex-row align-items-center justify-content-between">
     <div id="options">
+        <div class="d-flex align-items-center">
+            <img src="assets/autobadge-icon.png" width="40px">
+            <h1 style='font-size: 25px; font-weight: bold;'>&nbsp;AutoBadge</h1>
+        </div>
+        
         <a href="instructions.html" style="text-decoration: none; margin-bottom: 5px;">ⓘ Instructions</a>
         <form id="background-options" onchange="changeBg()">
             <h2>Background:</h2>
@@ -51,9 +56,9 @@
                 <label for="bg-image-file"></label>
             </div>
         </form>
-        <hr/>
-        <h2>Spacing Options</h2>
-        <form id="spacing-options" onchange="changeSpacing()">
+        <form id="spacing-options" onchange="changeSpacing()" hidden>
+            <hr/>
+            <h2>Spacing Options</h2>
             <div id="spacing-options-wrapper" class="d-flex flex-row justify-content-between">
                 <div class="form-check spacing-option">
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="around-option"/>
@@ -142,7 +147,7 @@
         </div>
     </div>
 </div>
-
+<p><i id="credit">Made by Blake Haug and Khoa Nguyen</i></p>
 <div class="modal fade" id="badgeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
