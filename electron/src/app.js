@@ -271,8 +271,6 @@ function printBadges() {
     }
 }
 function lineResize() {
-    document.querySelector("#profile").style = "height: 160px;";
-    logoBottom.style = "height: 110px;";
     document.querySelector(".name").style = "font-size: 26px;";
     console.log("resized due to long name");
 }
