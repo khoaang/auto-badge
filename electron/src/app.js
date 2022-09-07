@@ -346,21 +346,21 @@ function saveBadges() {
 }
 
 function print() {
-    if (window.require) {
-        const ipc = require("electron").ipcRenderer;
+    // if (window.require) {
+    //     const ipc = require("electron").ipcRenderer;
 
-        document.body.classList.add("printStyles");
-        console.log("Running in Electron");
-        require("electron").ipcRenderer.send("silent-print", "print");
-        console.log("Print request sent");
-        ipc.once("silent-print-response", () => {
-            document.body.classList.remove("printStyles");
-        })
+    //     document.body.classList.add("printStyles");
+    //     console.log("Running in Electron");
+    //     require("electron").ipcRenderer.send("silent-print", "print");
+    //     console.log("Print request sent");
+    //     ipc.once("silent-print-response", () => {
+    //         document.body.classList.remove("printStyles");
+    //     })
 
-        } else {
+    //     } else {
         console.warn("App not running inside Electron!");
         window.print();
-    }
+    //}
 }
 
 // Add persistence across reloads
